@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://daanky8kvq420"]
+
+[ext_resource type="Script" path="res://Scenes/skeleton.gd" id="1_abfcy"]
+[ext_resource type="Texture2D" uid="uid://cal0jcvk2qlv6" path="res://sprites/Enemies/Skeleton/skeleton.png" id="2_4ie6e"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iuen5"]
+size = Vector2(15.5, 16)
+
+[node name="Skeleton" type="CharacterBody2D"]
+position = Vector2(-2, -100)
+collision_mask = 0
+script = ExtResource("1_abfcy")
+
+[node name="Skeleton" type="Sprite2D" parent="."]
+texture = ExtResource("2_4ie6e")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_iuen5")

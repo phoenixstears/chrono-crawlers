@@ -55,13 +55,14 @@ animations = [{
 }]
 
 [node name="Player" type="CharacterBody2D"]
+collision_mask = 0
 script = ExtResource("1_5ixxa")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("6_nn08x")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(58, 0)
+position = Vector2(-2, 0)
 shape = SubResource("RectangleShape2D_glx4g")
 
 [node name="Characters" type="Node" parent="."]
