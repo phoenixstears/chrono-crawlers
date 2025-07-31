@@ -37,6 +37,5 @@ func save_progress():
 	config.set_value("game_saves","save_available",true)
 	config.save("res://data/saves.cfg")
 	
-	
 func _exit_tree():
 	save_settings()

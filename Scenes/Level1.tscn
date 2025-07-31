@@ -1,17 +1,13 @@
-[gd_scene load_steps=18 format=4 uid="uid://bkx8ncfw3c2ha"]
+[gd_scene load_steps=12 format=4 uid="uid://bkx8ncfw3c2ha"]
 
 [ext_resource type="AudioStream" uid="uid://dbdrmnmctydtu" path="res://OST/dungeon_idle.ogg" id="1_2llne"]
-[ext_resource type="Script" path="res://Scenes/level_1.gd" id="1_bdlbp"]
+[ext_resource type="Script" uid="uid://bewpx7hr07rrv" path="res://Scenes/level_1.gd" id="1_bdlbp"]
 [ext_resource type="Texture2D" uid="uid://brnmtpny50os4" path="res://sprites/Tiles/Dungeon_Tileset_at-export.png" id="2_bdlbp"]
 [ext_resource type="PackedScene" uid="uid://bjpcy026ui4iq" path="res://Scenes/Player.tscn" id="3_joc8x"]
-[ext_resource type="Texture2D" uid="uid://m1pmbtaejn0g" path="res://sprites/Enemies/Mage/mageskeleton.png" id="3_kylad"]
-[ext_resource type="Texture2D" uid="uid://cal0jcvk2qlv6" path="res://sprites/Enemies/Skeleton/skeleton.png" id="5_2h8qs"]
-[ext_resource type="Script" path="res://Scenes/mage.gd" id="6_ysn8j"]
-[ext_resource type="PackedScene" uid="uid://nn2dcc4k3mdw" path="res://Scenes/Bullet.tscn" id="7_6ll4n"]
+[ext_resource type="PackedScene" uid="uid://b4gwu3a5uwk3b" path="res://Scenes/Skeleton.tscn" id="8_6ll4n"]
 [ext_resource type="FontFile" uid="uid://dobwvaegybdn6" path="res://fonts/C&C Red Alert [INET].ttf" id="9_kylad"]
-[ext_resource type="Script" path="res://Scenes/pause_menu.gd" id="10_2h8qs"]
-[ext_resource type="Script" path="res://Scenes/skeleton.gd" id="11_2h8qs"]
-[ext_resource type="PackedScene" uid="uid://i0kta1y018fw" path="res://Scenes/mage.tscn" id="12_rpty4"]
+[ext_resource type="Script" uid="uid://dodvy3t3yb0ts" path="res://Scenes/pause_menu.gd" id="10_2h8qs"]
+[ext_resource type="PackedScene" uid="uid://cwcpa4jp05445" path="res://Scenes/mage.tscn" id="12_rpty4"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_2h8qs"]
 
@@ -279,12 +275,6 @@ physics_layer_0/collision_layer = 1
 physics_layer_0/physics_material = SubResource("PhysicsMaterial_2h8qs")
 sources/3 = SubResource("TileSetAtlasSource_6jj8j")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_6jj8j"]
-size = Vector2(15.5, 16)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_t3or0"]
-size = Vector2(17, 20)
-
 [node name="Level1" type="Node"]
 script = ExtResource("1_bdlbp")
 
@@ -305,35 +295,6 @@ tile_set = SubResource("TileSet_ug0sv")
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(-35, -77)
 zoom = Vector2(4.68, 4.68)
-
-[node name="Skeleton" type="CharacterBody2D" parent="."]
-position = Vector2(-2, -100)
-collision_mask = 0
-script = ExtResource("11_2h8qs")
-
-[node name="Skeleton" type="Sprite2D" parent="Skeleton"]
-texture = ExtResource("5_2h8qs")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Skeleton"]
-shape = SubResource("RectangleShape2D_6jj8j")
-
-[node name="Mage" type="CharacterBody2D" parent="."]
-position = Vector2(-140, -120)
-collision_mask = 0
-script = ExtResource("6_ysn8j")
-bullet_scene = ExtResource("7_6ll4n")
-
-[node name="Mage" type="Sprite2D" parent="Mage"]
-texture = ExtResource("3_kylad")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Mage"]
-position = Vector2(-0.5, 0)
-shape = SubResource("RectangleShape2D_t3or0")
-
-[node name="BulletSpawnPoint" type="Marker2D" parent="Mage"]
-position = Vector2(6, -3)
-
-[node name="Timer" type="Timer" parent="Mage"]
 
 [node name="PauseMenu" type="CanvasLayer" parent="."]
 process_mode = 2
@@ -362,7 +323,7 @@ vertical_alignment = 1
 
 [node name="Player" parent="." groups=["Player"] instance=ExtResource("3_joc8x")]
 
-[node name="Mage2" parent="." instance=ExtResource("12_rpty4")]
+[node name="Mage" parent="." instance=ExtResource("12_rpty4")]
 position = Vector2(-92, -129)
 
-[connection signal="timeout" from="Mage/Timer" to="Mage" method="_on_timer_timeout"]
+[node name="Skeleton" parent="." instance=ExtResource("8_6ll4n")]
