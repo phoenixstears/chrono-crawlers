@@ -1,6 +1,282 @@
-[gd_scene load_steps=2 format=3 uid="uid://bkx8ncfw3c2ha"]
+[gd_scene load_steps=14 format=4 uid="uid://bkx8ncfw3c2ha"]
 
 [ext_resource type="AudioStream" uid="uid://dbdrmnmctydtu" path="res://OST/dungeon_idle.ogg" id="1_2llne"]
+[ext_resource type="Texture2D" uid="uid://brnmtpny50os4" path="res://sprites/Tiles/Dungeon_Tileset_at-export.png" id="2_bdlbp"]
+[ext_resource type="Texture2D" uid="uid://m1pmbtaejn0g" path="res://sprites/Enemies/Mage/mageskeleton.png" id="3_kylad"]
+[ext_resource type="Texture2D" uid="uid://bhvcj4ooj0dud" path="res://sprites/Enemies/Mole/mole.png" id="4_bdlbp"]
+[ext_resource type="Texture2D" uid="uid://cal0jcvk2qlv6" path="res://sprites/Enemies/Skeleton/skeleton.png" id="5_2h8qs"]
+[ext_resource type="Texture2D" uid="uid://4fmgfuex2165" path="res://sprites/Enemies/Skeleton King/skeletonking.png" id="6_rpty4"]
+[ext_resource type="Texture2D" uid="uid://cv8ukekgxfw4q" path="res://sprites/Player Characters/Farmer/farmer.png" id="7_6jj8j"]
+[ext_resource type="Texture2D" uid="uid://dih0jbpn8ocvc" path="res://sprites/Player Characters/Warrior/warrior.png" id="8_2h8qs"]
+[ext_resource type="Texture2D" uid="uid://c3b0vx54igxku" path="res://sprites/Player Characters/Necromancer/necromancer.png" id="8_06um6"]
+[ext_resource type="Texture2D" uid="uid://bdhbwlkief88g" path="res://sprites/Player Characters/Priest/priest.png" id="9_rpty4"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_bdlbp"]
+friction = 0.0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6jj8j"]
+texture = ExtResource("2_bdlbp")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+8:0/0 = 0
+9:0/0 = 0
+10:0/0 = 0
+11:0/0 = 0
+12:0/0 = 0
+13:0/0 = 0
+14:0/0 = 0
+15:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+6:1/0 = 0
+7:1/0 = 0
+8:1/0 = 0
+9:1/0 = 0
+10:1/0 = 0
+11:1/0 = 0
+12:1/0 = 0
+13:1/0 = 0
+14:1/0 = 0
+15:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+6:2/0 = 0
+7:2/0 = 0
+8:2/0 = 0
+9:2/0 = 0
+10:2/0 = 0
+11:2/0 = 0
+12:2/0 = 0
+13:2/0 = 0
+14:2/0 = 0
+15:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+5:3/0 = 0
+6:3/0 = 0
+7:3/0 = 0
+8:3/0 = 0
+9:3/0 = 0
+10:3/0 = 0
+11:3/0 = 0
+12:3/0 = 0
+13:3/0 = 0
+14:3/0 = 0
+15:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+4:4/0 = 0
+5:4/0 = 0
+6:4/0 = 0
+7:4/0 = 0
+8:4/0 = 0
+9:4/0 = 0
+10:4/0 = 0
+11:4/0 = 0
+12:4/0 = 0
+13:4/0 = 0
+14:4/0 = 0
+15:4/0 = 0
+0:5/0 = 0
+1:5/0 = 0
+2:5/0 = 0
+3:5/0 = 0
+4:5/0 = 0
+5:5/0 = 0
+6:5/0 = 0
+7:5/0 = 0
+8:5/0 = 0
+9:5/0 = 0
+10:5/0 = 0
+11:5/0 = 0
+12:5/0 = 0
+13:5/0 = 0
+14:5/0 = 0
+15:5/0 = 0
+0:6/0 = 0
+1:6/0 = 0
+2:6/0 = 0
+3:6/0 = 0
+4:6/0 = 0
+5:6/0 = 0
+6:6/0 = 0
+7:6/0 = 0
+8:6/0 = 0
+9:6/0 = 0
+10:6/0 = 0
+11:6/0 = 0
+12:6/0 = 0
+13:6/0 = 0
+14:6/0 = 0
+15:6/0 = 0
+0:7/0 = 0
+1:7/0 = 0
+2:7/0 = 0
+3:7/0 = 0
+4:7/0 = 0
+5:7/0 = 0
+6:7/0 = 0
+7:7/0 = 0
+8:7/0 = 0
+9:7/0 = 0
+10:7/0 = 0
+11:7/0 = 0
+12:7/0 = 0
+13:7/0 = 0
+14:7/0 = 0
+15:7/0 = 0
+0:8/0 = 0
+1:8/0 = 0
+2:8/0 = 0
+3:8/0 = 0
+4:8/0 = 0
+5:8/0 = 0
+6:8/0 = 0
+7:8/0 = 0
+8:8/0 = 0
+9:8/0 = 0
+10:8/0 = 0
+11:8/0 = 0
+12:8/0 = 0
+13:8/0 = 0
+14:8/0 = 0
+15:8/0 = 0
+0:9/0 = 0
+1:9/0 = 0
+2:9/0 = 0
+3:9/0 = 0
+4:9/0 = 0
+5:9/0 = 0
+6:9/0 = 0
+7:9/0 = 0
+8:9/0 = 0
+9:9/0 = 0
+10:9/0 = 0
+11:9/0 = 0
+12:9/0 = 0
+13:9/0 = 0
+14:9/0 = 0
+15:9/0 = 0
+0:10/0 = 0
+1:10/0 = 0
+2:10/0 = 0
+3:10/0 = 0
+4:10/0 = 0
+5:10/0 = 0
+6:10/0 = 0
+7:10/0 = 0
+8:10/0 = 0
+9:10/0 = 0
+10:10/0 = 0
+11:10/0 = 0
+12:10/0 = 0
+13:10/0 = 0
+14:10/0 = 0
+15:10/0 = 0
+0:11/0 = 0
+1:11/0 = 0
+2:11/0 = 0
+3:11/0 = 0
+4:11/0 = 0
+5:11/0 = 0
+6:11/0 = 0
+7:11/0 = 0
+8:11/0 = 0
+9:11/0 = 0
+10:11/0 = 0
+11:11/0 = 0
+12:11/0 = 0
+13:11/0 = 0
+14:11/0 = 0
+15:11/0 = 0
+0:12/0 = 0
+1:12/0 = 0
+2:12/0 = 0
+3:12/0 = 0
+4:12/0 = 0
+5:12/0 = 0
+6:12/0 = 0
+7:12/0 = 0
+8:12/0 = 0
+9:12/0 = 0
+10:12/0 = 0
+11:12/0 = 0
+12:12/0 = 0
+13:12/0 = 0
+14:12/0 = 0
+15:12/0 = 0
+0:13/0 = 0
+1:13/0 = 0
+2:13/0 = 0
+3:13/0 = 0
+4:13/0 = 0
+5:13/0 = 0
+6:13/0 = 0
+7:13/0 = 0
+8:13/0 = 0
+9:13/0 = 0
+10:13/0 = 0
+11:13/0 = 0
+12:13/0 = 0
+13:13/0 = 0
+14:13/0 = 0
+15:13/0 = 0
+0:14/0 = 0
+1:14/0 = 0
+2:14/0 = 0
+3:14/0 = 0
+4:14/0 = 0
+5:14/0 = 0
+6:14/0 = 0
+7:14/0 = 0
+8:14/0 = 0
+9:14/0 = 0
+10:14/0 = 0
+11:14/0 = 0
+12:14/0 = 0
+13:14/0 = 0
+14:14/0 = 0
+15:14/0 = 0
+0:15/0 = 0
+1:15/0 = 0
+2:15/0 = 0
+3:15/0 = 0
+4:15/0 = 0
+5:15/0 = 0
+6:15/0 = 0
+7:15/0 = 0
+8:15/0 = 0
+9:15/0 = 0
+10:15/0 = 0
+11:15/0 = 0
+12:15/0 = 0
+13:15/0 = 0
+14:15/0 = 0
+15:15/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_ug0sv"]
+physics_layer_0/collision_layer = 1
+physics_layer_0/physics_material = SubResource("PhysicsMaterial_bdlbp")
+sources/3 = SubResource("TileSetAtlasSource_6jj8j")
 
 [node name="Level1" type="Node"]
 
@@ -8,3 +284,44 @@
 stream = ExtResource("1_2llne")
 autoplay = true
 parameters/looping = false
+
+[node name="TileMapLayer Ground" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAD6//j/AwAIAA0AAAD6//n/AwAIAA0AAAD6//r/AwAIAA0AAAD6//v/AwAIAA0AAAD6//z/AwAIAA0AAAD6//3/AwAIAA0AAAD7//j/AwAIAA0AAAD7//n/AwAIAA0AAAD7//r/AwAIAA0AAAD7//v/AwAIAA0AAAD7//z/AwAIAA0AAAD7//3/AwAIAA0AAAD8//j/AwAIAA0AAAD8//n/AwAIAA0AAAD8//r/AwAIAA0AAAD8//v/AwAIAA0AAAD8//z/AwAIAA0AAAD8//3/AwAIAA0AAAD9//j/AwAIAA0AAAD9//n/AwAIAA0AAAD9//r/AwAIAA0AAAD9//v/AwAIAA0AAAD9//z/AwAIAA0AAAD9//3/AwAIAA0AAAD+//j/AwAIAA0AAAD+//n/AwAIAA0AAAD+//r/AwAIAA0AAAD+//v/AwAIAA0AAAD+//z/AwAIAA0AAAD+//3/AwAIAA0AAAD///j/AwAIAA0AAAD///n/AwAIAA0AAAD///r/AwAIAA0AAAD///v/AwAIAA0AAAD///z/AwAIAA0AAAD///3/AwAIAA0AAAAAAPj/AwAIAA0AAAAAAPn/AwAIAA0AAAAAAPr/AwAIAA0AAAAAAPv/AwAIAA0AAAAAAPz/AwAIAA0AAAAAAP3/AwAIAA0AAAA=")
+tile_set = SubResource("TileSet_ug0sv")
+collision_enabled = false
+
+[node name="TileMapLayer Walls" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAD6//f/AwABAAYAAAD7//f/AwABAAYAAAD8//f/AwABAAYAAAD9//f/AwABAAYAAAD+//f/AwABAAYAAAD///f/AwABAAYAAAABAPf/AwAEAAYAAAAAAPf/AwADAAYAAAD5//j/AwAAAAcAAAD5//n/AwAAAAcAAAD5//r/AwAAAAcAAAD5//v/AwAAAAcAAAD5//z/AwAAAAcAAAD5//3/AwAAAAcAAAD5//7/AwAAAAoAAAD5//f/AwAAAAYAAAD6//7/AwACAAoAAAD7//7/AwACAAoAAAD8//7/AwACAAoAAAD9//7/AwACAAoAAAD+//7/AwACAAoAAAD///7/AwACAAoAAAAAAP7/AwACAAoAAAABAP7/AwAEAAoAAAABAP3/AwAKAAwAAAABAPj/AwAKAAwAAAABAPn/AwAKAAwAAAABAPr/AwAKAAwAAAABAPv/AwAKAAwAAAABAPz/AwAKAAwAAAA=")
+tile_set = SubResource("TileSet_ug0sv")
+
+[node name="Mageskeleton" type="Sprite2D" parent="."]
+position = Vector2(-79, -113)
+texture = ExtResource("3_kylad")
+
+[node name="Mole" type="Sprite2D" parent="."]
+position = Vector2(-44, -114)
+texture = ExtResource("4_bdlbp")
+
+[node name="Skeleton" type="Sprite2D" parent="."]
+position = Vector2(-5, -110)
+texture = ExtResource("5_2h8qs")
+
+[node name="Skeletonking" type="Sprite2D" parent="."]
+position = Vector2(-71, -80)
+texture = ExtResource("6_rpty4")
+
+[node name="Farmer" type="Sprite2D" parent="."]
+position = Vector2(-70, -43)
+texture = ExtResource("7_6jj8j")
+
+[node name="Warrior" type="Sprite2D" parent="."]
+position = Vector2(-9, -68)
+texture = ExtResource("8_2h8qs")
+
+[node name="Priest" type="Sprite2D" parent="."]
+position = Vector2(-42, -40)
+texture = ExtResource("9_rpty4")
+
+[node name="Necromancer" type="Sprite2D" parent="."]
+position = Vector2(-45, -59)
+texture = ExtResource("8_06um6")
