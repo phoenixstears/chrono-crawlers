@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://bkx8ncfw3c2ha"]
+
+[ext_resource type="AudioStream" uid="uid://dbdrmnmctydtu" path="res://OST/dungeon_idle.ogg" id="1_2llne"]
+
+[node name="Level1" type="Node"]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_2llne")
+autoplay = true
+parameters/looping = false

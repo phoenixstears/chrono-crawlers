@@ -11,5 +11,20 @@ config_version=5
 [application]
 
 config/name="Chrono Crawlers"
+run/main_scene="res://Scenes/MainMenu.tscn"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+MusicPlayer="*res://Scenes/MusicPlayer.tscn"
+
+[display]
+
+window/size/viewport_width=1600
+window/size/viewport_height=900
+window/stretch/mode="viewport"
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0

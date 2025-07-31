@@ -1,0 +1,364 @@
+[gd_scene load_steps=35 format=3 uid="uid://bnje0otuhpye6"]
+
+[ext_resource type="Script" uid="uid://bwq7hkkmtmulq" path="res://scripts/main_menu.gd" id="1_853f1"]
+[ext_resource type="FontFile" uid="uid://dobwvaegybdn6" path="res://fonts/C&C Red Alert [INET].ttf" id="1_tt5f1"]
+[ext_resource type="Texture2D" uid="uid://busueptlssnav" path="res://sprites/transparentmainmenulogo.png" id="3_8saeu"]
+[ext_resource type="Texture2D" uid="uid://b3fbsc743ih2p" path="res://sprites/mainmenuselectionclock.png" id="4_ghw46"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ghw46"]
+atlas = ExtResource("3_8saeu")
+region = Rect2(0, 0, 192, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_df05h"]
+atlas = ExtResource("3_8saeu")
+region = Rect2(192, 0, 192, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8um5k"]
+atlas = ExtResource("3_8saeu")
+region = Rect2(384, 0, 192, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xim88"]
+atlas = ExtResource("3_8saeu")
+region = Rect2(576, 0, 192, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_koqhg"]
+atlas = ExtResource("3_8saeu")
+region = Rect2(768, 0, 192, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cmrfp"]
+atlas = ExtResource("3_8saeu")
+region = Rect2(960, 0, 192, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_loo7a"]
+atlas = ExtResource("3_8saeu")
+region = Rect2(1152, 0, 192, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_if7li"]
+atlas = ExtResource("3_8saeu")
+region = Rect2(1344, 0, 192, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rrcx7"]
+atlas = ExtResource("3_8saeu")
+region = Rect2(1536, 0, 192, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fh7cp"]
+atlas = ExtResource("3_8saeu")
+region = Rect2(1728, 0, 192, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8e205"]
+atlas = ExtResource("3_8saeu")
+region = Rect2(1920, 0, 192, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7467j"]
+atlas = ExtResource("3_8saeu")
+region = Rect2(2112, 0, 192, 80)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2x1g0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ghw46")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_df05h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8um5k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xim88")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_koqhg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cmrfp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_loo7a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_if7li")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rrcx7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fh7cp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8e205")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7467j")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2x1g0"]
+atlas = ExtResource("4_ghw46")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_riqfo"]
+atlas = ExtResource("4_ghw46")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yxkem"]
+atlas = ExtResource("4_ghw46")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7v4os"]
+atlas = ExtResource("4_ghw46")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pjscj"]
+atlas = ExtResource("4_ghw46")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m7n2d"]
+atlas = ExtResource("4_ghw46")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_65hh5"]
+atlas = ExtResource("4_ghw46")
+region = Rect2(96, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6byu3"]
+atlas = ExtResource("4_ghw46")
+region = Rect2(112, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_leunp"]
+atlas = ExtResource("4_ghw46")
+region = Rect2(128, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h1v62"]
+atlas = ExtResource("4_ghw46")
+region = Rect2(144, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5hdia"]
+atlas = ExtResource("4_ghw46")
+region = Rect2(160, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iqn0u"]
+atlas = ExtResource("4_ghw46")
+region = Rect2(176, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3u44c"]
+atlas = ExtResource("4_ghw46")
+region = Rect2(192, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bxv1r"]
+atlas = ExtResource("4_ghw46")
+region = Rect2(208, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ux20s"]
+atlas = ExtResource("4_ghw46")
+region = Rect2(224, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ke15f"]
+atlas = ExtResource("4_ghw46")
+region = Rect2(240, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_311ux"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2x1g0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_riqfo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yxkem")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7v4os")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pjscj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m7n2d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_65hh5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6byu3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_leunp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h1v62")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5hdia")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iqn0u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3u44c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bxv1r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ux20s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ke15f")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_853f1")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 1641.0
+offset_bottom = 932.0
+color = Color(0.12549, 0.0313726, 0.0862745, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -176.0
+offset_top = -122.0
+offset_right = 177.0
+offset_bottom = 415.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="NewGameButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_hover_color = Color(0.701961, 0.701961, 0.701961, 1)
+theme_override_colors/font_pressed_color = Color(0.4, 0.4, 0.4, 1)
+theme_override_fonts/font = ExtResource("1_tt5f1")
+theme_override_font_sizes/font_size = 52
+text = "New Game"
+flat = true
+
+[node name="ContinueButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_hover_color = Color(0.701961, 0.701961, 0.701961, 1)
+theme_override_colors/font_pressed_color = Color(0.4, 0.4, 0.4, 1)
+theme_override_fonts/font = ExtResource("1_tt5f1")
+theme_override_font_sizes/font_size = 52
+text = "Continue"
+flat = true
+
+[node name="SettingsButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_hover_color = Color(0.701961, 0.701961, 0.701961, 1)
+theme_override_colors/font_pressed_color = Color(0.4, 0.4, 0.4, 1)
+theme_override_fonts/font = ExtResource("1_tt5f1")
+theme_override_font_sizes/font_size = 52
+text = "Settings"
+flat = true
+
+[node name="ExitButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_hover_color = Color(0.701961, 0.701961, 0.701961, 1)
+theme_override_colors/font_pressed_color = Color(0.4, 0.4, 0.4, 1)
+theme_override_fonts/font = ExtResource("1_tt5f1")
+theme_override_font_sizes/font_size = 52
+text = "Exit"
+flat = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(807, 180)
+scale = Vector2(3.11048, 3.11048)
+sprite_frames = SubResource("SpriteFrames_2x1g0")
+autoplay = "default"
+frame = 11
+frame_progress = 1.0
+
+[node name="Clock1" type="AnimatedSprite2D" parent="."]
+position = Vector2(683, 393)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_311ux")
+autoplay = "default"
+frame_progress = 0.898411
+
+[node name="Clock2" type="AnimatedSprite2D" parent="."]
+position = Vector2(913, 393)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_311ux")
+autoplay = "default"
+frame_progress = 0.5894
+
+[node name="Clock3" type="AnimatedSprite2D" parent="."]
+position = Vector2(897, 529)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_311ux")
+autoplay = "default"
+frame_progress = 0.5894
+
+[node name="Clock4" type="AnimatedSprite2D" parent="."]
+position = Vector2(699, 529)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_311ux")
+autoplay = "default"
+frame_progress = 0.5894
+
+[node name="Clock5" type="AnimatedSprite2D" parent="."]
+position = Vector2(703, 664)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_311ux")
+autoplay = "default"
+frame_progress = 0.5894
+
+[node name="Clock6" type="AnimatedSprite2D" parent="."]
+position = Vector2(893, 664)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_311ux")
+autoplay = "default"
+frame_progress = 0.5894
+
+[node name="Clock7" type="AnimatedSprite2D" parent="."]
+position = Vector2(847, 798)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_311ux")
+autoplay = "default"
+frame_progress = 0.5894
+
+[node name="Clock8" type="AnimatedSprite2D" parent="."]
+position = Vector2(749, 798)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_311ux")
+autoplay = "default"
+frame_progress = 0.5894
+
+[connection signal="mouse_entered" from="VBoxContainer/NewGameButton" to="." method="_on_new_game_button_mouse_entered"]
+[connection signal="mouse_exited" from="VBoxContainer/NewGameButton" to="." method="_on_new_game_button_mouse_exited"]
+[connection signal="pressed" from="VBoxContainer/NewGameButton" to="." method="_on_new_game_button_pressed"]
+[connection signal="mouse_entered" from="VBoxContainer/ContinueButton" to="." method="_on_continue_button_mouse_entered"]
+[connection signal="mouse_exited" from="VBoxContainer/ContinueButton" to="." method="_on_continue_button_mouse_exited"]
+[connection signal="pressed" from="VBoxContainer/ContinueButton" to="." method="_on_continue_button_pressed"]
+[connection signal="mouse_entered" from="VBoxContainer/SettingsButton" to="." method="_on_settings_button_mouse_entered"]
+[connection signal="mouse_exited" from="VBoxContainer/SettingsButton" to="." method="_on_settings_button_mouse_exited"]
+[connection signal="pressed" from="VBoxContainer/SettingsButton" to="." method="_on_settings_button_pressed"]
+[connection signal="mouse_entered" from="VBoxContainer/ExitButton" to="." method="_on_exit_button_mouse_entered"]
+[connection signal="mouse_exited" from="VBoxContainer/ExitButton" to="." method="_on_exit_button_mouse_exited"]
+[connection signal="pressed" from="VBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]
