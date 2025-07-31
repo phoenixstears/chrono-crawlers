@@ -1,24 +1,16 @@
-<<<<<<< HEAD
-[gd_scene load_steps=18 format=4 uid="uid://bkx8ncfw3c2ha"]
-=======
-[gd_scene load_steps=7 format=4 uid="uid://bkx8ncfw3c2ha"]
->>>>>>> origin/master
+[gd_scene load_steps=17 format=4 uid="uid://bkx8ncfw3c2ha"]
 
 [ext_resource type="AudioStream" uid="uid://dbdrmnmctydtu" path="res://OST/dungeon_idle.ogg" id="1_2llne"]
 [ext_resource type="Script" uid="uid://bewpx7hr07rrv" path="res://Scenes/level_1.gd" id="1_bdlbp"]
 [ext_resource type="Texture2D" uid="uid://brnmtpny50os4" path="res://sprites/Tiles/Dungeon_Tileset_at-export.png" id="2_bdlbp"]
-<<<<<<< HEAD
+[ext_resource type="PackedScene" uid="uid://bjpcy026ui4iq" path="res://Scenes/Player.tscn" id="3_joc8x"]
 [ext_resource type="Texture2D" uid="uid://m1pmbtaejn0g" path="res://sprites/Enemies/Mage/mageskeleton.png" id="3_kylad"]
 [ext_resource type="Texture2D" uid="uid://cal0jcvk2qlv6" path="res://sprites/Enemies/Skeleton/skeleton.png" id="5_2h8qs"]
 [ext_resource type="Script" uid="uid://c5crex1iyx12h" path="res://Scenes/mage.gd" id="6_ysn8j"]
 [ext_resource type="PackedScene" uid="uid://nn2dcc4k3mdw" path="res://Scenes/Bullet.tscn" id="7_6ll4n"]
-[ext_resource type="Texture2D" uid="uid://dih0jbpn8ocvc" path="res://sprites/Player Characters/Warrior/warrior.png" id="8_2h8qs"]
 [ext_resource type="FontFile" uid="uid://dobwvaegybdn6" path="res://fonts/C&C Red Alert [INET].ttf" id="9_kylad"]
 [ext_resource type="Script" uid="uid://dodvy3t3yb0ts" path="res://Scenes/pause_menu.gd" id="10_2h8qs"]
 [ext_resource type="Script" uid="uid://bxqrfgdswcv8p" path="res://Scenes/skeleton.gd" id="11_2h8qs"]
-=======
-[ext_resource type="PackedScene" uid="uid://cygmpivsm8d51" path="res://Scenes/Player.tscn" id="3_joc8x"]
->>>>>>> origin/master
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_2h8qs"]
 
@@ -286,9 +278,6 @@ physics_layer_0/collision_layer = 1
 physics_layer_0/physics_material = SubResource("PhysicsMaterial_2h8qs")
 sources/3 = SubResource("TileSetAtlasSource_6jj8j")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_rpty4"]
-size = Vector2(16, 16)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6jj8j"]
 size = Vector2(15.5, 16)
 
@@ -315,16 +304,6 @@ tile_set = SubResource("TileSet_ug0sv")
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(-35, -77)
 zoom = Vector2(4.68, 4.68)
-
-<<<<<<< HEAD
-[node name="Player" type="CharacterBody2D" parent="." groups=["Player"]]
-position = Vector2(-137, -10)
-
-[node name="Warrior" type="Sprite2D" parent="Player"]
-texture = ExtResource("8_2h8qs")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
-shape = SubResource("RectangleShape2D_rpty4")
 
 [node name="Skeleton" type="CharacterBody2D" parent="."]
 position = Vector2(-2, -100)
@@ -378,10 +357,6 @@ PRESS 'ESC' TO QUIT"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[connection signal="timeout" from="Mage/Timer" to="Mage" method="_on_timer_timeout"]
-=======
-[node name="Player" parent="." instance=ExtResource("3_joc8x")]
-position = Vector2(-72, -51)
+[node name="Player" parent="." groups=["Player"] instance=ExtResource("3_joc8x")]
 
-[editable path="Player"]
->>>>>>> origin/master
+[connection signal="timeout" from="Mage/Timer" to="Mage" method="_on_timer_timeout"]
