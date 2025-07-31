@@ -249,6 +249,7 @@ grow_vertical = 2
 [node name="NewGameButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+focus_mode = 0
 theme_override_colors/font_hover_color = Color(0.701961, 0.701961, 0.701961, 1)
 theme_override_colors/font_pressed_color = Color(0.4, 0.4, 0.4, 1)
 theme_override_fonts/font = ExtResource("1_tt5f1")
@@ -259,6 +260,7 @@ flat = true
 [node name="ContinueButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+focus_mode = 0
 theme_override_colors/font_hover_color = Color(0.701961, 0.701961, 0.701961, 1)
 theme_override_colors/font_pressed_color = Color(0.4, 0.4, 0.4, 1)
 theme_override_fonts/font = ExtResource("1_tt5f1")
@@ -269,6 +271,7 @@ flat = true
 [node name="SettingsButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+focus_mode = 0
 theme_override_colors/font_hover_color = Color(0.701961, 0.701961, 0.701961, 1)
 theme_override_colors/font_pressed_color = Color(0.4, 0.4, 0.4, 1)
 theme_override_fonts/font = ExtResource("1_tt5f1")
@@ -279,6 +282,7 @@ flat = true
 [node name="ExitButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+focus_mode = 0
 theme_override_colors/font_hover_color = Color(0.701961, 0.701961, 0.701961, 1)
 theme_override_colors/font_pressed_color = Color(0.4, 0.4, 0.4, 1)
 theme_override_fonts/font = ExtResource("1_tt5f1")
@@ -299,7 +303,7 @@ position = Vector2(683, 393)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_311ux")
 autoplay = "default"
-frame_progress = 0.898411
+frame_progress = 0.514979
 
 [node name="Clock2" type="AnimatedSprite2D" parent="."]
 position = Vector2(913, 393)

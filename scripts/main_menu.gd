@@ -9,9 +9,14 @@ func _ready():
 	$Clock6.hide()
 	$Clock7.hide()
 	$Clock8.hide()
+	if Global.save == false:
+		$VBoxContainer/ContinueButton.disabled = true
+	else:
+		$VBoxContainer/ContinueButton.disabled = false
 
 func _on_new_game_button_pressed() -> void:
 	MusicPlayer.stop_music()
+	Global.save_progress()
 	get_tree().change_scene_to_file("res://Scenes/Level1.tscn")
 	
 func _on_new_game_button_mouse_entered() -> void:
@@ -35,7 +40,7 @@ func _on_continue_button_mouse_exited() -> void:
 	$Clock4.hide()
 
 func _on_settings_button_pressed() -> void:
-	pass # Replace with function body.
+	get_tree().change_scene_to_file("res://Scenes/settings.tscn")
 
 
 func _on_settings_button_mouse_entered() -> void:
