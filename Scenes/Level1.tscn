@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=4 uid="uid://bkx8ncfw3c2ha"]
+[gd_scene load_steps=11 format=4 uid="uid://bkx8ncfw3c2ha"]
 
 [ext_resource type="AudioStream" uid="uid://dbdrmnmctydtu" path="res://OST/dungeon_idle.ogg" id="1_2llne"]
 [ext_resource type="Script" path="res://Scenes/level_1.gd" id="1_bdlbp"]
@@ -7,7 +7,6 @@
 [ext_resource type="PackedScene" uid="uid://daanky8kvq420" path="res://Scenes/Skeleton.tscn" id="8_6ll4n"]
 [ext_resource type="FontFile" uid="uid://dobwvaegybdn6" path="res://fonts/C&C Red Alert [INET].ttf" id="9_kylad"]
 [ext_resource type="Script" path="res://Scenes/pause_menu.gd" id="10_2h8qs"]
-[ext_resource type="PackedScene" uid="uid://i0kta1y018fw" path="res://Scenes/mage.tscn" id="12_rpty4"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_2h8qs"]
 
@@ -322,8 +321,5 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Player" parent="." groups=["Player"] instance=ExtResource("3_joc8x")]
-
-[node name="Mage" parent="." instance=ExtResource("12_rpty4")]
-position = Vector2(-92, -129)
 
 [node name="Skeleton" parent="." instance=ExtResource("8_6ll4n")]

@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://dlqrf7sptpgk6"]
+
+[ext_resource type="Script" uid="uid://c05eqphluxlna" path="res://scripts/projectile.gd" id="1_7baj4"]
+[ext_resource type="Texture2D" uid="uid://ba2ffrsk715uk" path="res://sprites/Player Characters/Priest/priest_projectile_sprite.png" id="2_7baj4"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qvus8"]
+radius = 4.0
+
+[node name="PriestProjectile" type="Area2D"]
+script = ExtResource("1_7baj4")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1.508e-05, -2.79844e-05)
+texture = ExtResource("2_7baj4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_qvus8")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

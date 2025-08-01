@@ -6,6 +6,8 @@ extends CharacterBody2D
 @onready var warrior = $"Characters/Warrior"
 @onready var queue_positions = [necromancer, farmer, priest, warrior]
 
+var state_controller = StateController.new()
+
 const unselected_alpha = 0.2
 
 const speed = 100
@@ -26,24 +28,35 @@ func _ready() -> void:
 			queue_positions[i].modulate.a = 1.0
 		else:
 			queue_positions[i].modulate.a = 0.2
+	state_controller.ready(self)
+	state_controller.swap_character(queue_positions[0])
+	state_controller.transition_to_state(BaseState.State.IDLE)
 
 func _process(delta: float) -> void:
+	state_controller.process(delta)
 	#if Input.is_action_just_pressed("1"):
 	if Input.is_action_just_pressed("2"):
 		queue_positions[0].modulate.a = unselected_alpha
 		swap_character(1)
 		queue_positions[0].modulate.a = 1.0
 		swapping_idx = 1
+		state_controller.swap_character(queue_positions[0])
+		state_controller.transition_to_state(BaseState.State.IDLE)
 	if Input.is_action_just_pressed("3"):
 		queue_positions[0].modulate.a = unselected_alpha
 		swap_character(2)
 		queue_positions[0].modulate.a = 1.0
 		swapping_idx = 2
+		state_controller.swap_character(queue_positions[0])
+		state_controller.transition_to_state(BaseState.State.IDLE)
 	if Input.is_action_just_pressed("4"):
 		queue_positions[0].modulate.a = unselected_alpha
 		swap_character(3)
 		queue_positions[0].modulate.a = 1.0
 		swapping_idx = 3
+		state_controller.swap_character(queue_positions[0])
+		state_controller.transition_to_state(BaseState.State.IDLE)
+	
 
 func _physics_process(delta: float) -> void:
 	var direction = Vector2.ZERO
