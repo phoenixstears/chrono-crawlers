@@ -9,7 +9,7 @@ extends CharacterBody2D
 const unselected_alpha = 0.2
 
 const speed = 100
-const frame_distance = 20
+const frame_distance = 12
 var positions_buffer = []
 
 var swapping_idx = -1

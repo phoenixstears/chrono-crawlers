@@ -1,6 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://cwcpa4jp05445"]
+[gd_scene load_steps=5 format=3 uid="uid://i0kta1y018fw"]
 
-[ext_resource type="Script" uid="uid://c5crex1iyx12h" path="res://Scenes/mage.gd" id="1_bbshb"]
+[ext_resource type="Script" path="res://Scenes/mage.gd" id="1_bbshb"]
 [ext_resource type="PackedScene" uid="uid://nn2dcc4k3mdw" path="res://Scenes/Bullet.tscn" id="2_h01ui"]
 [ext_resource type="Texture2D" uid="uid://m1pmbtaejn0g" path="res://sprites/Enemies/Mage/mageskeleton.png" id="3_254od"]
 

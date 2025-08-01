@@ -17,3 +17,4 @@ func attack_player():
 	is_attacking = true
 	await $Skeleton.animation_finished
 	is_attacking = false
+	$Skeleton.play("chase")
