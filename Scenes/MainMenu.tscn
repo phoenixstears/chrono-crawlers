@@ -4,7 +4,7 @@
 [ext_resource type="FontFile" uid="uid://dobwvaegybdn6" path="res://fonts/C&C Red Alert [INET].ttf" id="1_tt5f1"]
 [ext_resource type="Texture2D" uid="uid://busueptlssnav" path="res://sprites/transparentmainmenulogo.png" id="3_8saeu"]
 [ext_resource type="Texture2D" uid="uid://b3fbsc743ih2p" path="res://sprites/mainmenuselectionclock.png" id="4_ghw46"]
-[ext_resource type="Script" uid="uid://bju2trd8a8v36" path="res://Scenes/sub_viewport.gd" id="5_8um5k"]
+[ext_resource type="Script" path="res://Scenes/sub_viewport.gd" id="5_8um5k"]
 [ext_resource type="Texture2D" uid="uid://brnmtpny50os4" path="res://sprites/Tiles/Dungeon_Tileset_at-export.png" id="5_df05h"]
 [ext_resource type="Texture2D" uid="uid://cdq4lpxwqfduk" path="res://sprites/Player Characters/Farmer/farmer_place_chicken.png" id="7_xim88"]
 [ext_resource type="Texture2D" uid="uid://btfomshirva2m" path="res://sprites/Enemies/Skeleton/skeleton_idle.png" id="8_rrcx7"]

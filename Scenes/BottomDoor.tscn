@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://df5aick55avb6"]
+
+[ext_resource type="Script" uid="uid://biejjojmswhxw" path="res://Scenes/left_door.gd" id="1_iy6hh"]
+
+[node name="BottomDoor" type="Area2D"]
+script = ExtResource("1_iy6hh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

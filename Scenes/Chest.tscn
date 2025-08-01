@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://cn3euh2ggso1i"]
+
+[ext_resource type="Texture2D" uid="uid://brnmtpny50os4" path="res://sprites/Tiles/Dungeon_Tileset_at-export.png" id="1_ghm5h"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mr3w3"]
+atlas = ExtResource("1_ghm5h")
+region = Rect2(16, 224, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fqgxf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mr3w3")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2bf1p"]
+size = Vector2(16, 16)
+
+[node name="Chest" type="StaticBody2D"]
+z_index = 4
+collision_layer = 4
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_fqgxf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_2bf1p")
