@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://daanky8kvq420"]
+[gd_scene load_steps=24 format=3 uid="uid://b4gwu3a5uwk3b"]
 
 [ext_resource type="Script" uid="uid://bxqrfgdswcv8p" path="res://Scenes/skeleton.gd" id="1_abfcy"]
 [ext_resource type="Texture2D" uid="uid://bvf2paaa4ncuk" path="res://sprites/Enemies/Skeleton/skeletonslash.png" id="2_iuen5"]
@@ -158,5 +158,3 @@ autoplay = "chase"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_iuen5")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
