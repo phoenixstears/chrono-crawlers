@@ -1,11 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://cor2gn8c7mn6y"]
+[gd_scene load_steps=7 format=3 uid="uid://bkx8ncfw3c2ha"]
 
 [ext_resource type="AudioStream" uid="uid://dbdrmnmctydtu" path="res://OST/dungeon_idle.ogg" id="1_2llne"]
-[ext_resource type="Script" path="res://Scenes/level_1.gd" id="1_bdlbp"]
+[ext_resource type="Script" uid="uid://bewpx7hr07rrv" path="res://Scenes/level_1.gd" id="1_bdlbp"]
 [ext_resource type="PackedScene" uid="uid://bjpcy026ui4iq" path="res://Scenes/Player.tscn" id="3_joc8x"]
 [ext_resource type="PackedScene" uid="uid://ceblrkcjtni8w" path="res://Scenes/Room_1.tscn" id="6_t3or0"]
 [ext_resource type="FontFile" uid="uid://dobwvaegybdn6" path="res://fonts/C&C Red Alert [INET].ttf" id="9_kylad"]
-[ext_resource type="Script" path="res://Scenes/pause_menu.gd" id="10_2h8qs"]
+[ext_resource type="Script" uid="uid://dodvy3t3yb0ts" path="res://Scenes/pause_menu.gd" id="10_2h8qs"]
 
 [node name="Level1" type="Node"]
 script = ExtResource("1_bdlbp")
@@ -13,7 +13,7 @@ script = ExtResource("1_bdlbp")
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("1_2llne")
 autoplay = true
-parameters/looping = false
+parameters/looping = true
 
 [node name="PauseMenu" type="CanvasLayer" parent="."]
 process_mode = 2
@@ -40,7 +40,12 @@ PRESS 'ESC' TO QUIT"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Player" parent="." instance=ExtResource("3_joc8x")]
+
+[node name="Camera2D2" type="Camera2D" parent="Player"]
+position = Vector2(-35, -77)
+offset = Vector2(50, 100)
+zoom = Vector2(4.68, 4.68)
+
 [node name="Level" parent="." instance=ExtResource("6_t3or0")]
 position = Vector2(4834, 3612)
-
-[node name="Player" parent="." instance=ExtResource("3_joc8x")]

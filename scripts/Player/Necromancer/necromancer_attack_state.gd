@@ -51,7 +51,6 @@ func process_state(delta: float) -> void:
 				#t.fix_tether(player_root)
 				drain_dict[object] = 0
 	
-	print(drain_dict)
 
 var radius: float = 50.0
 var color: Color = Color.RED
