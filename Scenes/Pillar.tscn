@@ -54,7 +54,7 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1ovyj"]
 size = Vector2(14, 12)
 
-[node name="Pillar" type="StaticBody2D"]
+[node name="Pillar" type="StaticBody2D" groups=["Pillar"]]
 collision_layer = 4
 script = ExtResource("1_jrxsb")
 

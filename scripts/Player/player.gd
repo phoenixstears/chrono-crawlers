@@ -5,7 +5,7 @@ extends CharacterBody2D
 @onready var priest = $"Characters/Priest"
 @onready var warrior = $"Characters/Warrior"
 @onready var queue_positions = [necromancer, farmer, priest, warrior]
-
+var saw_pillar = false
 var state_controller = StateController.new()
 
 const unselected_alpha = 0.2
@@ -64,7 +64,18 @@ func _process(delta: float) -> void:
 		var door = check_if_door_close()
 		if door != null and door.unlocked:
 			door.open()
+	check_for_pillar()
 
+
+func check_for_pillar():
+	if !saw_pillar and Global.level > 0:
+		for body in get_tree().get_nodes_in_group("Pillar"):
+			if global_position.distance_to(body.global_position) < 50:
+				saw_pillar = true
+				show_dialogue("This Pillar looks damaged..")
+				await get_tree().create_timer(5.0).timeout
+				show_dialogue("Maybe it'll eventually give in to time!")
+	
 func check_if_torch_close():
 	for body in get_tree().get_nodes_in_group("Torch"):
 		if global_position.distance_to(body.global_position) < 12:
