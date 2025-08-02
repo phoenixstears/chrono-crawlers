@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://5yvj31gelmam"]
+
+[ext_resource type="Texture2D" uid="uid://dxr2nmrrnd0m2" path="res://sprites/Player Characters/Necromancer/tether.png" id="1_rtt2w"]
+[ext_resource type="Script" uid="uid://bahqhbpa70d1i" path="res://tether_particles.gd" id="2_ui5vu"]
+
+[node name="CPUParticles2D" type="CPUParticles2D"]
+amount = 1
+texture = ExtResource("1_rtt2w")
+spread = 0.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 60.0
+initial_velocity_max = 60.0
+script = ExtResource("2_ui5vu")

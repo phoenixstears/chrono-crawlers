@@ -1,7 +1,8 @@
-[gd_scene load_steps=11 format=4 uid="uid://bkx8ncfw3c2ha"]
+[gd_scene load_steps=12 format=4 uid="uid://bkx8ncfw3c2ha"]
 
 [ext_resource type="AudioStream" uid="uid://dbdrmnmctydtu" path="res://OST/dungeon_idle.ogg" id="1_2llne"]
 [ext_resource type="Script" path="res://Scenes/level_1.gd" id="1_bdlbp"]
+[ext_resource type="PackedScene" uid="uid://cwcpa4jp05445" path="res://Scenes/mage.tscn" id="2_6ll4n"]
 [ext_resource type="Texture2D" uid="uid://brnmtpny50os4" path="res://sprites/Tiles/Dungeon_Tileset_at-export.png" id="2_bdlbp"]
 [ext_resource type="PackedScene" uid="uid://bjpcy026ui4iq" path="res://Scenes/Player.tscn" id="3_joc8x"]
 [ext_resource type="PackedScene" uid="uid://b4gwu3a5uwk3b" path="res://Scenes/Skeleton.tscn" id="8_6ll4n"]
@@ -277,6 +278,9 @@ sources/3 = SubResource("TileSetAtlasSource_6jj8j")
 [node name="Level1" type="Node"]
 script = ExtResource("1_bdlbp")
 
+[node name="Mage" parent="." instance=ExtResource("2_6ll4n")]
+position = Vector2(-106, -121)
+
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("1_2llne")
 autoplay = true
@@ -323,3 +327,4 @@ vertical_alignment = 1
 [node name="Player" parent="." groups=["Player"] instance=ExtResource("3_joc8x")]
 
 [node name="Skeleton" parent="." instance=ExtResource("8_6ll4n")]
+position = Vector2(-50, -49)

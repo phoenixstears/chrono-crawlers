@@ -1,0 +1,104 @@
+[gd_scene load_steps=16 format=3 uid="uid://dx1ms0ssah6gb"]
+
+[ext_resource type="Script" uid="uid://b4uoe2ybrd5kj" path="res://exploding_chicken.gd" id="1_lttbx"]
+[ext_resource type="Texture2D" uid="uid://dn7j162yuicxf" path="res://sprites/Player Characters/Farmer/exploding_chicken.png" id="2_0gh1p"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1vji1"]
+atlas = ExtResource("2_0gh1p")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pxivl"]
+atlas = ExtResource("2_0gh1p")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7jm3e"]
+atlas = ExtResource("2_0gh1p")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oaln4"]
+atlas = ExtResource("2_0gh1p")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_71gu5"]
+atlas = ExtResource("2_0gh1p")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nvsji"]
+atlas = ExtResource("2_0gh1p")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uhqis"]
+atlas = ExtResource("2_0gh1p")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lhc76"]
+atlas = ExtResource("2_0gh1p")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t5ibw"]
+atlas = ExtResource("2_0gh1p")
+region = Rect2(256, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2ckk0"]
+atlas = ExtResource("2_0gh1p")
+region = Rect2(288, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oqkjg"]
+atlas = ExtResource("2_0gh1p")
+region = Rect2(320, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wuyx7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1vji1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pxivl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7jm3e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oaln4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_71gu5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nvsji")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uhqis")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lhc76")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t5ibw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2ckk0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oqkjg")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dhwjh"]
+radius = 21.0
+
+[node name="ExplodingChicken" type="Area2D"]
+script = ExtResource("1_lttbx")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_wuyx7")
+autoplay = "default"
+frame = 10
+frame_progress = 1.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_dhwjh")

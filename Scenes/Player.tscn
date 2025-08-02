@@ -1,4 +1,4 @@
-[gd_scene load_steps=90 format=3 uid="uid://bjpcy026ui4iq"]
+[gd_scene load_steps=91 format=3 uid="uid://bjpcy026ui4iq"]
 
 [ext_resource type="Script" uid="uid://ba5076cmsmxas" path="res://scripts/Player/player.gd" id="1_5ixxa"]
 [ext_resource type="Texture2D" uid="uid://cf0uceswwpc8b" path="res://sprites/Player Characters/Priest/priest_attack.png" id="3_yoq75"]
@@ -21,6 +21,7 @@
 [ext_resource type="Texture2D" uid="uid://o0tvxhuskcne" path="res://sprites/Player Characters/Warrior/warrior_idle.png" id="17_1iu4k"]
 [ext_resource type="Script" uid="uid://dwsx6g3wnw8k5" path="res://Scenes/player_pivot.gd" id="20_5v66d"]
 [ext_resource type="Texture2D" uid="uid://cu3mybuldc332" path="res://sprites/Player Characters/Warrior/warrior_swing_particles.png" id="20_m0x7a"]
+[ext_resource type="Script" uid="uid://b41g3bl64lql6" path="res://Scenes/draw_circle.gd" id="22_x63xi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_glx4g"]
 size = Vector2(3, 4)
@@ -594,7 +595,7 @@ texture = ExtResource("7_1iu4k")
 z_index = 2
 position = Vector2(60, 0)
 sprite_frames = SubResource("SpriteFrames_miouo")
-animation = &"dead"
+animation = &"attack"
 
 [node name="Sprite2D" type="Sprite2D" parent="Characters/Farmer"]
 z_index = -1
@@ -616,9 +617,7 @@ position = Vector2(-2, 0)
 script = ExtResource("20_5v66d")
 
 [node name="WarriorSwingCollider" type="CollisionPolygon2D" parent="Pivot"]
-visible = false
 polygon = PackedVector2Array(0, -13, 26, -11, 26, 11, 0, 13)
-disabled = true
 
 [node name="WarriorSwingAnimation" type="AnimatedSprite2D" parent="Pivot"]
 visible = false
@@ -633,3 +632,9 @@ collision_layer = 0
 [node name="NecromancerDrainCollider" type="CollisionShape2D" parent="Pivot/NecromancerDrainArea"]
 visible = false
 shape = SubResource("CircleShape2D_5v66d")
+
+[node name="Node2D" type="Node2D" parent="Pivot/NecromancerDrainArea"]
+visible = false
+script = ExtResource("22_x63xi")
+radius = 75.0
+color = Color(0.368627, 0.54902, 0.317647, 0.313726)

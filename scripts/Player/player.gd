@@ -99,3 +99,10 @@ func swap_character(idx: int) -> void:
 	queue_positions[0] = queue_positions[idx]
 	queue_positions[idx] = temp
 		
+func take_damage():
+	if queue_positions.size() == 1:
+		get_tree().change_scene_to_file("res://Scenes/MainMenu.tscn")
+	else:
+		state_controller.transition_to_state(BaseState.State.DEAD)
+		queue_positions.remove_at(0)
+		state_controller.swap_character(queue_positions[0])

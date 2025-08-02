@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=4 uid="uid://ceblrkcjtni8w"]
+[gd_scene load_steps=11 format=4 uid="uid://bsihw77q77csl"]
 
 [ext_resource type="Texture2D" uid="uid://brnmtpny50os4" path="res://sprites/Tiles/Dungeon_Tileset_at-export.png" id="1_7fl63"]
 [ext_resource type="Texture2D" uid="uid://c12170aigo5ps" path="res://sprites/Tiles/0x72_DungeonTilesetII_v1.7.png" id="2_bbstb"]
