@@ -9,3 +9,6 @@ func play_music():
 
 func playDoorOpen():
 	$DoorOpen.play()
+
+func playPowerup():
+	$Powerup.play()

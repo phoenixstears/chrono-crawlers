@@ -3200,3 +3200,11 @@ position = Vector2(-4751, -2568)
 [node name="Pillar" parent="." instance=ExtResource("13_pfhkt")]
 z_index = 4
 position = Vector2(-4605, -3116)
+
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = -5
+offset_left = -5479.0
+offset_top = -3812.0
+offset_right = -2224.0
+offset_bottom = -1517.0
+color = Color(0.145098, 0.0745098, 0.101961, 1)

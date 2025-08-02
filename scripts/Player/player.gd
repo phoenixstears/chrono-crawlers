@@ -64,8 +64,21 @@ func _process(delta: float) -> void:
 		var door = check_if_door_close()
 		if door != null and door.unlocked:
 			door.open()
+		var chest = check_if_chest_close()
+		if chest != null:
+			chest.open()
+			if Global.level == 2:
+				await get_tree().create_timer(0.5).timeout
+				show_dialogue("The torches in this dungeon are set up really weirdly..")
+				await get_tree().create_timer(5.0).timeout
+				show_dialogue("523423...hm...")
 	check_for_pillar()
 
+func check_if_chest_close():
+	for body in get_tree().get_nodes_in_group("Chest"):
+		if global_position.distance_to(body.global_position) < 20:
+			return body
+	return null
 
 func check_for_pillar():
 	if !saw_pillar and Global.level > 0:
