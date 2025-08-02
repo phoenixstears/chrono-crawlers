@@ -55,6 +55,7 @@ func take_damage(dmg):
 	if current_hp <= 0:
 		set_process(false)
 		set_physics_process(false)
+		$DeathSound.play()
 		$Skeleton.play("dead")
 		await $Skeleton.animation_finished
 		queue_free()

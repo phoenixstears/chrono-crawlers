@@ -6,3 +6,6 @@ func stop_music():
 	
 func play_music():
 	$AudioStreamPlayer.play()
+
+func playDoorOpen():
+	$DoorOpen.play()

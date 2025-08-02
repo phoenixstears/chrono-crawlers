@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://do4edvbt82peb"]
+[gd_scene load_steps=4 format=3 uid="uid://do4edvbt82peb"]
 
 [ext_resource type="Script" uid="uid://co5lfs67tb7um" path="res://scripts/music_player.gd" id="1_5psdy"]
 [ext_resource type="AudioStream" uid="uid://c0hs618cv1gc7" path="res://OST/menu_music.ogg" id="2_w8kvg"]
+[ext_resource type="AudioStream" uid="uid://c8tr11ycw4ldk" path="res://SFX/door_open.wav" id="3_sd74s"]
 
 [node name="MusicPlayer" type="Node"]
 script = ExtResource("1_5psdy")
@@ -9,3 +10,6 @@ script = ExtResource("1_5psdy")
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_w8kvg")
 parameters/looping = false
+
+[node name="DoorOpen" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_sd74s")

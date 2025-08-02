@@ -63,6 +63,7 @@ func take_damage(dmg):
 		set_process(false)
 		set_physics_process(false)
 		$CollisionShape2D.disabled = true
+		$DeathSound.play()
 		animation.play("dead")
 		await $Mage.animation_finished
 		queue_free()

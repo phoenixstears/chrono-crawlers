@@ -118,6 +118,7 @@ func spawn_boss():
 		add_child(enemy)
 func _ready():
 	spawn_wave_1()
+	$FightSound.play()
 	if Global.level == 1:
 		await get_tree().create_timer(1.0).timeout
 		$Player.show_dialogue("W-Why are we back here again?")
@@ -139,8 +140,12 @@ func _ready():
 func _process(delta: float):
 	if $Level/RightDoor2 == null and current_wave_2 == 0:
 		spawn_wave_2()
+		$IdleSound.stop()
+		$FightSound.play()
 	if $Level/TopDoor4 == null and current_wave_3 == 0:
 		spawn_wave_3()
+		$IdleSound.stop()
+		$FightSound.play()
 	if $Level/TopDoor2 == null and boss_spawned == false:
 		if Global.level == 0:
 			$Player.show_dialogue("Wow, the boss room already? That was easy!")
@@ -155,6 +160,8 @@ func _process(delta: float):
 		room1_cleared = true
 		if Global.level == 0:
 			$Player.show_dialogue("Alright, first room cleared, many to go!")
+		$FightSound.stop()
+		$IdleSound.play()
 	elif current_wave_2 > 0 and current_wave_2 < 3:
 		if get_tree().get_nodes_in_group("Enemy").is_empty():
 			spawn_wave_2()
@@ -175,6 +182,8 @@ func _process(delta: float):
 		$Level/TopDoor4.unlocked = true
 		$Level/TopDoor5.unlocked = true
 		room2_cleared = true
+		$FightSound.stop()
+		$IdleSound.play()
 	elif current_wave_3 > 0 and current_wave_3 < 3:
 		if get_tree().get_nodes_in_group("Enemy").is_empty():
 			spawn_wave_3()
@@ -182,6 +191,8 @@ func _process(delta: float):
 		$Level/TopDoor2.unlocked = true
 		$Level/TopDoor3.unlocked = true
 		room3_cleared = true
+		$FightSound.stop()
+		$IdleSound.play()
 	elif $Level/TopDoor2 == null and boss_spawned == false:
 		spawn_boss()
 		boss_spawned = true

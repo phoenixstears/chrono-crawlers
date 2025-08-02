@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://bkx8ncfw3c2ha"]
+[gd_scene load_steps=8 format=3 uid="uid://bkx8ncfw3c2ha"]
 
 [ext_resource type="AudioStream" uid="uid://dbdrmnmctydtu" path="res://OST/dungeon_idle.ogg" id="1_2llne"]
 [ext_resource type="Script" uid="uid://bewpx7hr07rrv" path="res://Scenes/level_1.gd" id="1_bdlbp"]
 [ext_resource type="PackedScene" uid="uid://bjpcy026ui4iq" path="res://Scenes/Player.tscn" id="3_joc8x"]
+[ext_resource type="AudioStream" uid="uid://cjobj28vq0wmf" path="res://OST/dungeon_fight.ogg" id="3_ysn8j"]
 [ext_resource type="PackedScene" uid="uid://ceblrkcjtni8w" path="res://Scenes/Room_1.tscn" id="6_t3or0"]
 [ext_resource type="FontFile" uid="uid://dobwvaegybdn6" path="res://fonts/C&C Red Alert [INET].ttf" id="9_kylad"]
 [ext_resource type="Script" uid="uid://dodvy3t3yb0ts" path="res://Scenes/pause_menu.gd" id="10_2h8qs"]
@@ -10,9 +11,12 @@
 [node name="Level1" type="Node"]
 script = ExtResource("1_bdlbp")
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="IdleSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("1_2llne")
-autoplay = true
+parameters/looping = true
+
+[node name="FightSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_ysn8j")
 parameters/looping = true
 
 [node name="PauseMenu" type="CanvasLayer" parent="."]
