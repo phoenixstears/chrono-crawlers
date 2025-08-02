@@ -10,15 +10,15 @@ func _ready():
 	$Clock6.hide()
 	$Clock7.hide()
 	$Clock8.hide()
-	if Global.save == false:
+	if Global.level == 0:
 		$VBoxContainer/ContinueButton.disabled = true
 	else:
 		$VBoxContainer/ContinueButton.disabled = false
 
 func _on_new_game_button_pressed() -> void:
 	MusicPlayer.stop_music()
-	Global.save_progress()
 	Global.level = 0
+	Global.save_progress(Global.level)
 	get_tree().change_scene_to_file("res://Scenes/level_transition_screen.tscn")
 	
 func _on_new_game_button_mouse_entered() -> void:

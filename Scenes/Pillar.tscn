@@ -1,0 +1,68 @@
+[gd_scene load_steps=9 format=3 uid="uid://ck3j58cjfwfkw"]
+
+[ext_resource type="Script" uid="uid://c47ahfmcg3ygy" path="res://Scenes/pillar.gd" id="1_jrxsb"]
+[ext_resource type="Texture2D" uid="uid://ce0nyathoibfy" path="res://sprites/Pillar/pillar_getting_ruined.png" id="1_qocnt"]
+[ext_resource type="Texture2D" uid="uid://cctacbp5jg2nd" path="res://sprites/Pillar/pillar_fallen.png" id="2_jrxsb"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_py6tj"]
+atlas = ExtResource("1_qocnt")
+region = Rect2(0, 0, 16, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_51nbw"]
+atlas = ExtResource("1_qocnt")
+region = Rect2(16, 0, 16, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8la3d"]
+atlas = ExtResource("1_qocnt")
+region = Rect2(32, 0, 16, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_233xr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_py6tj")
+}],
+"loop": true,
+"name": &"iter1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_51nbw")
+}],
+"loop": true,
+"name": &"iter2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8la3d")
+}],
+"loop": true,
+"name": &"iter3",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_jrxsb")
+}],
+"loop": true,
+"name": &"iter4",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1ovyj"]
+size = Vector2(14, 12)
+
+[node name="Pillar" type="StaticBody2D"]
+collision_layer = 4
+script = ExtResource("1_jrxsb")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_233xr")
+animation = &"iter4"
+autoplay = "iter1"
+
+[node name="Collider" type="CollisionShape2D" parent="."]
+position = Vector2(0, 7)
+shape = SubResource("RectangleShape2D_1ovyj")

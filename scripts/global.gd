@@ -2,7 +2,6 @@ extends Node
 
 
 var level = 0
-var save = false
 var sound_volume = 50
 func _ready():
 	load_saves()
@@ -31,10 +30,10 @@ func load_saves():
 	if err != OK:
 		return
 	
-	save = config.get_value("game_saves","save_available")
-func save_progress():
+	level = config.get_value("game_saves","save_available")
+func save_progress(value: int):
 	var config = ConfigFile.new()
-	config.set_value("game_saves","save_available",true)
+	config.set_value("game_saves","save_available",value)
 	config.save("res://data/saves.cfg")
 	
 func _exit_tree():
