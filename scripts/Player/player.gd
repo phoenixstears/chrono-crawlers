@@ -126,3 +126,4 @@ func take_damage():
 		state_controller.transition_to_state(BaseState.State.DEAD)
 		queue_positions.remove_at(0)
 		state_controller.swap_character(queue_positions[0])
+		queue_positions[0].modulate.a = 1.0
