@@ -39,6 +39,5 @@ func shoot_bullet():
 	var bullet = bullet_scene.instantiate()
 	player_root.get_tree().current_scene.add_child(bullet)  
 	bullet.global_position = bullet_spawn.global_position
-	print(bullet.global_position)
 	var direction = Vector2.RIGHT.rotated(bullet_spawn.rotation)
 	bullet.velocity = direction * bullet.speed

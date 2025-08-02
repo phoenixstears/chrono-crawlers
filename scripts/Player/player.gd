@@ -62,7 +62,7 @@ func _process(delta: float) -> void:
 		if torch != null:
 			torch.toggle()
 		var door = check_if_door_close()
-		if door != null:
+		if door != null and door.unlocked:
 			door.open()
 
 func check_if_torch_close():
@@ -121,7 +121,7 @@ func swap_character(idx: int) -> void:
 		
 func take_damage():
 	if queue_positions.size() == 1:
-		get_tree().change_scene_to_file("res://Scenes/MainMenu.tscn")
+		get_tree().change_scene_to_file("res://Scenes/GameOverScreen.tscn")
 	else:
 		state_controller.transition_to_state(BaseState.State.DEAD)
 		queue_positions.remove_at(0)

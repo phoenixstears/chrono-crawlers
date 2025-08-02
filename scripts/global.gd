@@ -1,7 +1,7 @@
 extends Node
 
 
-
+var level = 0
 var save = false
 var sound_volume = 50
 func _ready():

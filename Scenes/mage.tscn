@@ -174,14 +174,16 @@ animations = [{
 size = Vector2(17, 20)
 
 [node name="Mage" type="CharacterBody2D" groups=["Enemy"]]
-collision_mask = 0
+collision_mask = 4
 script = ExtResource("1_bbshb")
 bullet_scene = ExtResource("2_h01ui")
 
 [node name="Mage" type="AnimatedSprite2D" parent="."]
 z_index = 1
 sprite_frames = SubResource("SpriteFrames_y61np")
-animation = &"idle"
+animation = &"dead"
+frame = 3
+frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 z_index = 1

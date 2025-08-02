@@ -79,6 +79,8 @@ script = ExtResource("1_nuopa")
 sprite_frames = SubResource("SpriteFrames_3pwbd")
 animation = &"up"
 autoplay = "down"
+frame = 9
+frame_progress = 1.0
 
 [node name="Timer" type="Timer" parent="."]
 

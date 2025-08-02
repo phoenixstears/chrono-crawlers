@@ -44,7 +44,6 @@ func shoot_bullet():
 	var bullet = bullet_scene.instantiate()
 	get_parent().add_child(bullet)  
 	bullet.global_position = bullet_spawn.global_position
-	print(bullet.global_position)
 	var direction = (target.global_position - bullet_spawn.global_position).normalized()
 	bullet.velocity = direction * bullet.speed
 
@@ -59,4 +58,6 @@ func take_damage(dmg):
 		set_physics_process(false)
 		$CollisionShape2D.disabled = true
 		animation.play("dead")
+		await $Mage.animation_finished
+		queue_free()
 		$Timer.set_paused(true)

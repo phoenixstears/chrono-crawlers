@@ -212,7 +212,7 @@ animations = [{
 }]
 
 [node name="Skeleton" type="CharacterBody2D" groups=["Enemy"]]
-collision_mask = 0
+collision_mask = 4
 script = ExtResource("1_abfcy")
 
 [node name="Skeleton" type="AnimatedSprite2D" parent="."]

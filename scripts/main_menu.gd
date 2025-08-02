@@ -1,6 +1,7 @@
 extends Control
 
 func _ready():
+	MusicPlayer.play_music()
 	$Clock1.hide()
 	$Clock2.hide()
 	$Clock3.hide()
@@ -17,7 +18,8 @@ func _ready():
 func _on_new_game_button_pressed() -> void:
 	MusicPlayer.stop_music()
 	Global.save_progress()
-	get_tree().change_scene_to_file("res://Scenes/Level1.tscn")
+	Global.level = 0
+	get_tree().change_scene_to_file("res://Scenes/level_transition_screen.tscn")
 	
 func _on_new_game_button_mouse_entered() -> void:
 	$Clock1.show()
@@ -30,6 +32,7 @@ func _on_new_game_button_mouse_exited() -> void:
 	
 func _on_continue_button_pressed() -> void:
 	MusicPlayer.stop_music()
+	get_tree().change_scene_to_file("res://Scenes/level_transition_screen.tscn")
 	
 func _on_continue_button_mouse_entered() -> void:
 	$Clock3.show()

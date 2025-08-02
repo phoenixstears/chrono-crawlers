@@ -46,12 +46,13 @@ func attack_player():
 	slashing = true
 
 func take_damage(dmg):
-	print("taking dmg")
 	current_hp -= dmg
 	if current_hp <= 0:
 		set_process(false)
 		set_physics_process(false)
 		$Skeleton.play("dead")
+		await $Skeleton.animation_finished
+		queue_free()
 		$CollisionShape2D.disabled = true
 		
 	
