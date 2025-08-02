@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://btrll5vftxhr3"]
+
+[ext_resource type="Script" uid="uid://biejjojmswhxw" path="res://Scenes/left_door.gd" id="1_hnduw"]
+[ext_resource type="Texture2D" uid="uid://brnmtpny50os4" path="res://sprites/Tiles/Dungeon_Tileset_at-export.png" id="2_6xwhm"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ppyhm"]
+atlas = ExtResource("2_6xwhm")
+region = Rect2(112, 176, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_px7yl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ppyhm")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_27xxn"]
+size = Vector2(16, 16)
+
+[node name="LeftDoor" type="StaticBody2D" groups=["Door"]]
+collision_layer = 4
+script = ExtResource("1_hnduw")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_px7yl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_27xxn")

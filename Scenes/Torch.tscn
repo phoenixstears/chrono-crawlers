@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=3 uid="uid://bblripumnpj3o"]
+
+[ext_resource type="Script" uid="uid://bjg25ogyo84ge" path="res://Scenes/torch.gd" id="1_2l58e"]
+[ext_resource type="Texture2D" uid="uid://coi8nv3x5djjw" path="res://sprites/Tiles/2D Pixel Dungeon Asset Pack/items and trap_animation/torch/torch_3.png" id="1_lanxt"]
+[ext_resource type="Texture2D" uid="uid://bhvcj4ooj0dud" path="res://sprites/Enemies/Mole/mole.png" id="2_2l58e"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vnsoy"]
+atlas = ExtResource("2_2l58e")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_77g5u"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_lanxt")
+}],
+"loop": true,
+"name": &"lit",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vnsoy")
+}],
+"loop": true,
+"name": &"put_out",
+"speed": 5.0
+}]
+
+[node name="Torch" type="Area2D" groups=["Torch"]]
+script = ExtResource("1_2l58e")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_77g5u")
+animation = &"lit"
+autoplay = "lit"

@@ -33,6 +33,7 @@ func _ready() -> void:
 	state_controller.transition_to_state(BaseState.State.IDLE)
 
 func _process(delta: float) -> void:
+	
 	state_controller.process(delta)
 	#if Input.is_action_just_pressed("1"):
 	if Input.is_action_just_pressed("2"):
@@ -56,7 +57,26 @@ func _process(delta: float) -> void:
 		swapping_idx = 3
 		state_controller.swap_character(queue_positions[0])
 		state_controller.transition_to_state(BaseState.State.IDLE)
+	if Input.is_action_just_pressed("interact"):
+		var torch = check_if_torch_close()
+		if torch != null:
+			torch.toggle()
+		var door = check_if_door_close()
+		if door != null:
+			door.open()
+
+func check_if_torch_close():
+	for body in get_tree().get_nodes_in_group("Torch"):
+		if global_position.distance_to(body.global_position) < 12:
+			return body
+	return null
 	
+func check_if_door_close():
+	for body in get_tree().get_nodes_in_group("Door"):
+		if global_position.distance_to(body.global_position) < 12:
+			return body
+	return null
+
 
 func _physics_process(delta: float) -> void:
 	var direction = Vector2.ZERO
