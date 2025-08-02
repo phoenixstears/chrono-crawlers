@@ -127,3 +127,9 @@ func take_damage():
 		queue_positions.remove_at(0)
 		state_controller.swap_character(queue_positions[0])
 		queue_positions[0].modulate.a = 1.0
+func show_dialogue(message: String):
+	$DialogueBox.text = message
+	$DialogueBox.visible = true
+	await get_tree().create_timer(4.0).timeout
+	$DialogueBox.visible = false
+	

@@ -4,6 +4,7 @@ extends CharacterBody2D
 @onready var bullet_spawn = $BulletSpawnPoint
 @onready var target = $"../Player"
 @onready var animation = $Mage
+@onready var nav_agent = $NavigationAgent2D
 
 var max_hp = 3
 var current_hp = 3
@@ -17,8 +18,13 @@ func _physics_process(delta: float) -> void:
 		animation.play("idle")
 	elif animation.animation != "attack":
 		if distance > 70:
-			velocity = direction * speed
-			move_and_slide()
+			nav_agent.target_position = target.global_position
+			if nav_agent.is_navigation_finished():
+				return
+
+			var next_point = nav_agent.get_next_path_position()
+			direction = (next_point - global_position).normalized()
+			position += direction * speed * delta
 			$Timer.set_paused(true)
 			if animation.animation != "walk":
 				animation.play("walk")
