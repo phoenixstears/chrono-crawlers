@@ -1,9 +1,10 @@
-[gd_scene load_steps=36 format=3 uid="uid://b4gwu3a5uwk3b"]
+[gd_scene load_steps=44 format=3 uid="uid://b4gwu3a5uwk3b"]
 
 [ext_resource type="Script" uid="uid://bxqrfgdswcv8p" path="res://Scenes/skeleton.gd" id="1_abfcy"]
 [ext_resource type="Texture2D" uid="uid://cjcevenkivm67" path="res://sprites/Enemies/Skeleton/skeleton_slash_corrected.png" id="2_iuen5"]
 [ext_resource type="Texture2D" uid="uid://67xc1e1td5sa" path="res://sprites/Enemies/Skeleton/skeleton_walking_headbf.png" id="3_4ie6e"]
 [ext_resource type="Texture2D" uid="uid://dupn6vq15oh2m" path="res://sprites/Enemies/Skeleton/skeleton_death.png" id="4_iuen5"]
+[ext_resource type="Texture2D" uid="uid://cb53pjaf5cfah" path="res://sprites/Enemies/Skeleton/skeleton_spawning.png" id="5_rtppx"]
 [ext_resource type="Script" uid="uid://ehgs48w5c5j4" path="res://Scenes/skeleton_pivot.gd" id="5_yek4v"]
 [ext_resource type="Texture2D" uid="uid://bnv6q500kwk2l" path="res://sprites/Enemies/Skeleton/skeleton_slash_particles.png" id="6_2bjux"]
 [ext_resource type="AudioStream" uid="uid://bjti8texn4dpj" path="res://SFX/skeleton_death.wav" id="7_2bjux"]
@@ -96,6 +97,34 @@ region = Rect2(32, 0, 16, 16)
 atlas = ExtResource("4_iuen5")
 region = Rect2(48, 0, 16, 16)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_ijbhh"]
+atlas = ExtResource("5_rtppx")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ddipo"]
+atlas = ExtResource("5_rtppx")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_353gq"]
+atlas = ExtResource("5_rtppx")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ix6k6"]
+atlas = ExtResource("5_rtppx")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hdu5v"]
+atlas = ExtResource("5_rtppx")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vips4"]
+atlas = ExtResource("5_rtppx")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jdpkg"]
+atlas = ExtResource("5_rtppx")
+region = Rect2(96, 0, 16, 16)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_b70gm"]
 animations = [{
 "frames": [{
@@ -178,6 +207,32 @@ animations = [{
 "loop": false,
 "name": &"dead",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ijbhh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ddipo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_353gq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ix6k6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hdu5v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vips4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jdpkg")
+}],
+"loop": false,
+"name": &"spawn",
+"speed": 5.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iuen5"]
@@ -218,7 +273,7 @@ script = ExtResource("1_abfcy")
 
 [node name="Skeleton" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_b70gm")
-animation = &"attack"
+animation = &"spawn"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_iuen5")

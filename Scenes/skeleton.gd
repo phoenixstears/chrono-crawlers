@@ -12,12 +12,17 @@ var current_hp = 5
 
 var slashing = false
 var can_hit = true
+var spawning = true
 
 func _ready() -> void:
 	slash_animation.visible = false
-	animation.play("chase")
+	animation.play("spawn")
 
 func _physics_process(delta: float) -> void:
+	if spawning:
+		if animation.frame == 6:
+			spawning = false
+		return
 	if animation.animation == "attack":
 		if animation.frame == 4:
 			slash_animation.visible = true

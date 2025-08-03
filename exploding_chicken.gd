@@ -14,7 +14,7 @@ func _physics_process(delta: float) -> void:
 		exploding = false
 	if exploding:
 		for object in get_overlapping_bodies():
-			if object.is_in_group("Enemy") and not object in hit_enemies_set:
+			if (object.is_in_group("Enemy") || object.is_in_group("King") || object.is_in_group("Throne")) and not object in hit_enemies_set:
 				hit_enemies_set.append(object)
 				object.take_damage(2)
 	if !animation.is_playing():

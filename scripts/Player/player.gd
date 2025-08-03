@@ -72,6 +72,9 @@ func _process(delta: float) -> void:
 				show_dialogue("The torches in this dungeon are set up really weirdly..")
 				await get_tree().create_timer(5.0).timeout
 				show_dialogue("523423...hm...")
+		var king = check_if_dead_king_close()
+		if king != null:
+			get_tree().change_scene_to_file("res://Scenes/transition_scene.tscn")
 	check_for_pillar()
 
 func check_if_chest_close():

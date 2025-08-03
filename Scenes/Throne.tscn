@@ -256,7 +256,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Throne" type="StaticBody2D" groups=["Enemy"]]
+[node name="Throne" type="StaticBody2D" groups=["Throne"]]
 z_index = 2
 position = Vector2(-3024, -2387)
 collision_layer = 5

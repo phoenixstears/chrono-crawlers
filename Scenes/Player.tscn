@@ -21,7 +21,7 @@
 [ext_resource type="Texture2D" uid="uid://o0tvxhuskcne" path="res://sprites/Player Characters/Warrior/warrior_idle.png" id="17_1iu4k"]
 [ext_resource type="Script" uid="uid://dwsx6g3wnw8k5" path="res://Scenes/player_pivot.gd" id="20_5v66d"]
 [ext_resource type="Texture2D" uid="uid://cu3mybuldc332" path="res://sprites/Player Characters/Warrior/warrior_swing_particles.png" id="20_m0x7a"]
-[ext_resource type="Script" path="res://Scenes/draw_circle.gd" id="22_x63xi"]
+[ext_resource type="Script" uid="uid://b41g3bl64lql6" path="res://Scenes/draw_circle.gd" id="22_x63xi"]
 [ext_resource type="FontFile" uid="uid://dobwvaegybdn6" path="res://fonts/C&C Red Alert [INET].ttf" id="23_i2e8t"]
 [ext_resource type="AudioStream" uid="uid://b6g7lbyj868rt" path="res://SFX/character_death.wav" id="24_qidb7"]
 

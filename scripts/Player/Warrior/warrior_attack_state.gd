@@ -46,7 +46,7 @@ func process_state(delta: float) -> void:
 		
 	if slashing:
 		for object in swing_area.get_overlapping_bodies():
-			if object.is_in_group("Enemy") and not object in hit_enemies_set:
+			if (object.is_in_group("Enemy") || object.is_in_group("Throne") || object.is_in_group("King")) and not object in hit_enemies_set:
 				hit_enemies_set.append(object)
 				object.take_damage(2)
 	

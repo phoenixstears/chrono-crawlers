@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://cwcpa4jp05445"]
+[gd_scene load_steps=38 format=3 uid="uid://cwcpa4jp05445"]
 
 [ext_resource type="Script" uid="uid://c5crex1iyx12h" path="res://Scenes/mage.gd" id="1_bbshb"]
 [ext_resource type="PackedScene" uid="uid://nn2dcc4k3mdw" path="res://Scenes/Bullet.tscn" id="2_h01ui"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://c3d4nxnlggln2" path="res://sprites/Enemies/Mage/mage_skeleton_death.png" id="4_qippj"]
 [ext_resource type="Texture2D" uid="uid://mucn2dt0ulwi" path="res://sprites/Enemies/Mage/mage_skeleton_idle.png" id="5_qippj"]
 [ext_resource type="Texture2D" uid="uid://cob8xrxy1070v" path="res://sprites/Enemies/Mage/mage_skeleton_walking.png" id="5_tf4tv"]
+[ext_resource type="Texture2D" uid="uid://cewliwuhiwoqu" path="res://sprites/Enemies/Mage/skeleton_mage_spawning.png" id="6_jtp6b"]
 [ext_resource type="AudioStream" uid="uid://bydq3lrtmdooq" path="res://SFX/mage_death.wav" id="7_tf4tv"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jtp6b"]
@@ -71,6 +72,34 @@ region = Rect2(0, 0, 16, 16)
 [sub_resource type="AtlasTexture" id="AtlasTexture_y61np"]
 atlas = ExtResource("5_qippj")
 region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cplnf"]
+atlas = ExtResource("6_jtp6b")
+region = Rect2(0, 0, 18, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i42mr"]
+atlas = ExtResource("6_jtp6b")
+region = Rect2(18, 0, 18, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uvs71"]
+atlas = ExtResource("6_jtp6b")
+region = Rect2(36, 0, 18, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5yqmp"]
+atlas = ExtResource("6_jtp6b")
+region = Rect2(54, 0, 18, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lbpap"]
+atlas = ExtResource("6_jtp6b")
+region = Rect2(72, 0, 18, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vh5gc"]
+atlas = ExtResource("6_jtp6b")
+region = Rect2(90, 0, 18, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bnsmc"]
+atlas = ExtResource("6_jtp6b")
+region = Rect2(108, 0, 18, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gesqx"]
 atlas = ExtResource("5_tf4tv")
@@ -155,6 +184,32 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_cplnf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i42mr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uvs71")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5yqmp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lbpap")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vh5gc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bnsmc")
+}],
+"loop": false,
+"name": &"spawning",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_gesqx")
 }, {
 "duration": 1.0,
@@ -183,9 +238,7 @@ bullet_scene = ExtResource("2_h01ui")
 [node name="Mage" type="AnimatedSprite2D" parent="."]
 z_index = 1
 sprite_frames = SubResource("SpriteFrames_y61np")
-animation = &"dead"
-frame = 3
-frame_progress = 1.0
+animation = &"spawning"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 z_index = 1
