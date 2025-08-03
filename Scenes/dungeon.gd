@@ -17,6 +17,8 @@ func check_for_bottom_relic_done():
 	if !top_open : 
 		if torch_check():
 			$TopSecretWall.open()
+			$TopSecretWalls.visible = true
+			$TopSecretFloor.visible = true
 			top_open = true
 # TOBY FOX'S SCHOOL OF GAME DEV AND SOFTWARE ENGINEERING RIGHT HERE
 func torch_check():

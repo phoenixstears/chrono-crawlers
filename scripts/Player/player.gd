@@ -81,7 +81,7 @@ func check_if_chest_close():
 	return null
 
 func check_for_pillar():
-	if !saw_pillar and Global.level > 0:
+	if !saw_pillar and Global.level > 0 and Global.level < 3:
 		for body in get_tree().get_nodes_in_group("Pillar"):
 			if global_position.distance_to(body.global_position) < 50:
 				saw_pillar = true

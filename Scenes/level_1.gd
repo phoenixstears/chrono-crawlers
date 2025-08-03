@@ -137,6 +137,9 @@ func _ready():
 	elif Global.level > 3:
 		await get_tree().create_timer(1.0).timeout
 		$Player.show_dialogue("...")
+	if Global.level >=3:
+		$Level/SideSecretWalls.visible = true
+		$Level/SideSecretFloor.visible = true
 func _process(delta: float):
 	if $Level/RightDoor2 == null and current_wave_2 == 0:
 		spawn_wave_2()
