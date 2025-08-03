@@ -64,6 +64,9 @@ func _process(delta: float) -> void:
 		var door = check_if_door_close()
 		if door != null and door.unlocked:
 			door.open()
+		var king = check_if_dead_king_close()
+		if king!= null:
+			get_tree().change_scene_to_file("res://Scenes/transition_scene.tscn")
 
 func check_if_torch_close():
 	for body in get_tree().get_nodes_in_group("Torch"):
@@ -76,7 +79,12 @@ func check_if_door_close():
 		if global_position.distance_to(body.global_position) < 12:
 			return body
 	return null
-
+	
+func check_if_dead_king_close():
+	for body in get_tree().get_nodes_in_group("King"):
+		if global_position.distance_to(body.global_position) < 12 && body.dead == true:
+			return body
+	return null
 
 func _physics_process(delta: float) -> void:
 	var direction = Vector2.ZERO

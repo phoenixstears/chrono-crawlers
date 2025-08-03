@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://covp7mqp5f8mg"]
+
+[ext_resource type="Script" uid="uid://dqofcsjaljy8y" path="res://Scenes/skeleton_spawn.gd" id="1_ag37m"]
+
+[node name="SkeletonSpawn" type="Node2D"]
+script = ExtResource("1_ag37m")
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

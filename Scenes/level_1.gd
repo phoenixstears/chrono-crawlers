@@ -127,7 +127,6 @@ func _process(delta: float):
 	if $Level/TopDoor2 == null and boss_spawned == false:
 		spawn_boss()
 	if current_wave_1 <= 2:
-		print(current_wave_1)
 		if get_tree().get_nodes_in_group("Enemy").is_empty():
 			spawn_wave_1()
 	elif room1_cleared == false:

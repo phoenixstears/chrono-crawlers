@@ -1,0 +1,69 @@
+[gd_scene load_steps=8 format=3 uid="uid://dqg6yql4dlhyg"]
+
+[ext_resource type="Texture2D" uid="uid://k5xiqvu7fd5h" path="res://sprites/scepter_transition_screen.png" id="1_s5xav"]
+[ext_resource type="Texture2D" uid="uid://jp3y8io51vg5" path="res://sprites/Relics/square_relic.png" id="2_rm7gt"]
+[ext_resource type="Script" uid="uid://ci2xx5gsjd1ex" path="res://square_relic_transition.gd" id="3_1w6ld"]
+[ext_resource type="Texture2D" uid="uid://vdegy8s2x2jy" path="res://sprites/Relics/triangle_relic.png" id="4_0dwtl"]
+[ext_resource type="Script" uid="uid://dyaevdelna6v2" path="res://Scenes/triangle_relic_transition.gd" id="5_1w6ld"]
+[ext_resource type="Texture2D" uid="uid://bgld5vr06r852" path="res://sprites/Relics/circle_relic.png" id="5_a72rj"]
+[ext_resource type="Script" uid="uid://da4hqk4af8bgm" path="res://Scenes/circle_relic_transition.gd" id="7_0dwtl"]
+
+[node name="TransitionScene" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="."]
+z_index = 1
+layout_mode = 0
+offset_left = 330.0
+offset_top = -36.0
+offset_right = 586.0
+offset_bottom = 220.0
+scale = Vector2(3.68294, 3.68294)
+texture = ExtResource("1_s5xav")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = -35.0
+offset_top = -36.0
+offset_right = 5.0
+offset_bottom = 4.0
+scale = Vector2(41.2798, 23.9475)
+color = Color(0.203922, 0.0509804, 0.192157, 1)
+
+[node name="SquareRelic" type="TextureRect" parent="."]
+z_index = 2
+layout_mode = 0
+offset_left = -100.0
+offset_top = 307.0
+offset_right = -60.0
+offset_bottom = 347.0
+scale = Vector2(1.47, 1.47)
+texture = ExtResource("2_rm7gt")
+script = ExtResource("3_1w6ld")
+
+[node name="TriangleRelic" type="TextureRect" parent="."]
+z_index = 2
+layout_mode = 0
+offset_left = 2300.0
+offset_top = 380.0
+offset_right = 2340.0
+offset_bottom = 420.0
+scale = Vector2(1.47, 1.47)
+texture = ExtResource("4_0dwtl")
+script = ExtResource("5_1w6ld")
+
+[node name="CircleRelic" type="TextureRect" parent="."]
+z_index = 2
+layout_mode = 0
+offset_left = -1700.0
+offset_top = 461.0
+offset_right = -1660.0
+offset_bottom = 501.0
+scale = Vector2(1.47, 1.47)
+texture = ExtResource("5_a72rj")
+script = ExtResource("7_0dwtl")
