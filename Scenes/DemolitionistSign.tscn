@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://bn8m3b73u0mw4"]
+
+[ext_resource type="Script" uid="uid://cpguoonx80n02" path="res://Scenes/demolitionist_sign.gd" id="1_87dm6"]
+[ext_resource type="FontFile" uid="uid://dobwvaegybdn6" path="res://fonts/C&C Red Alert [INET].ttf" id="1_gwp1b"]
+[ext_resource type="Texture2D" uid="uid://dype4gar8fs2y" path="res://sprites/sign.png" id="2_87dm6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mvob6"]
+size = Vector2(16, 16)
+
+[node name="DemolitionistSign" type="Area2D"]
+script = ExtResource("1_87dm6")
+
+[node name="Label" type="Label" parent="."]
+visible = false
+offset_left = -37.0
+offset_top = -20.0
+offset_right = 110.0
+offset_bottom = 3.0
+scale = Vector2(0.5, 0.5)
+theme_override_fonts/font = ExtResource("1_gwp1b")
+theme_override_font_sizes/font_size = 0
+text = "The Demolitionist's Trial"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_mvob6")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_87dm6")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

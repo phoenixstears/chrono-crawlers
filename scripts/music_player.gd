@@ -12,3 +12,6 @@ func playDoorOpen():
 
 func playPowerup():
 	$Powerup.play()
+
+func playRelic():
+	$Relic.play()

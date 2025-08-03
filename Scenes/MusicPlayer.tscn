@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://do4edvbt82peb"]
+[gd_scene load_steps=6 format=3 uid="uid://do4edvbt82peb"]
 
 [ext_resource type="Script" uid="uid://co5lfs67tb7um" path="res://scripts/music_player.gd" id="1_5psdy"]
 [ext_resource type="AudioStream" uid="uid://c0hs618cv1gc7" path="res://OST/menu_music.ogg" id="2_w8kvg"]
 [ext_resource type="AudioStream" uid="uid://c8tr11ycw4ldk" path="res://SFX/door_open.wav" id="3_sd74s"]
 [ext_resource type="AudioStream" uid="uid://dlwo0rsmt3oiw" path="res://SFX/powerup.wav" id="4_mcmw5"]
+[ext_resource type="AudioStream" uid="uid://bh6lw4jwsy5tb" path="res://SFX/Holy.wav" id="5_gscs3"]
 
 [node name="MusicPlayer" type="Node"]
 script = ExtResource("1_5psdy")
@@ -17,3 +18,6 @@ stream = ExtResource("3_sd74s")
 
 [node name="Powerup" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_mcmw5")
+
+[node name="Relic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_gscs3")

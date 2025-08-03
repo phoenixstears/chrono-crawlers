@@ -6,7 +6,7 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_qvus8"]
 radius = 4.0
 
-[node name="PriestProjectile" type="Area2D"]
+[node name="PriestProjectile" type="Area2D" groups=["Bullet"]]
 collision_mask = 5
 script = ExtResource("1_7baj4")
 

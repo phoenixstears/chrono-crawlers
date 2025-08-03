@@ -184,9 +184,39 @@ func get_circular(arr: Array, index: int) -> Variant:
 
 func take_damage(dmg):
 	current_hp -= dmg
-	if current_hp < 0:
+	if current_hp < 0 and !dead:
 		dead = true
 		set_process(false)
 		set_physics_process(false)
 		animation.play("dead")
+		Global.level += 1
+		show_dialogue("It appears that I have been beaten.")
+		await get_tree().create_timer(2.5).timeout
+		show_dialogue("Do not be fooled, however, for I am not the real challenge this dungeon presents.")
+		await get_tree().create_timer(2.5).timeout
+		show_dialogue("You see, these ruins are cursed.")
+		await get_tree().create_timer(2.5).timeout
+		show_dialogue("The moment you step foot on these grounds, you get stuck in a time loop.")
+		await get_tree().create_timer(2.5).timeout
+		show_dialogue("There is only one way to break it.")
+		await get_tree().create_timer(2.5).timeout
+		show_dialogue("Charge my scepter with the three relics scattered across this dungeon and use it.")
+		await get_tree().create_timer(2.5).timeout
+		show_dialogue("Only after breaking the loop will you be able to leave this place.")
+		await get_tree().create_timer(2.5).timeout
+		show_dialogue("Time passes as normal here, however - so be quick or perish.")
+		await get_tree().create_timer(2.5).timeout
+		show_dialogue("Now, before this iteration ends - a piece of advice.")
+		await get_tree().create_timer(2.5).timeout
+		show_dialogue("'May the light guide you - 523423'")
+		await get_tree().create_timer(2.5).timeout
+		show_dialogue("Farewell.")
+		await get_tree().create_timer(2.5).timeout
+		show_dialogue("(Interact with the dead king to retrieve his scepter)")
 	
+	
+func show_dialogue(message: String):
+	$DialogueBox.text = message
+	$DialogueBox.visible = true
+	await get_tree().create_timer(2.5).timeout
+	$DialogueBox.visible = false

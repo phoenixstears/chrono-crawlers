@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://2cc60k7ie8wh"]
+
+[ext_resource type="Script" uid="uid://bqqp0ywm57ays" path="res://Scenes/trial_wall.gd" id="1_t6rhd"]
+[ext_resource type="Texture2D" uid="uid://ceeqpuj60o767" path="res://sprites/trial_wall.png" id="2_6n8py"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uf2x6"]
+size = Vector2(16, 13)
+
+[node name="TrialWall" type="StaticBody2D"]
+z_index = 2
+collision_layer = 128
+script = ExtResource("1_t6rhd")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_6n8py")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1.5)
+shape = SubResource("RectangleShape2D_uf2x6")

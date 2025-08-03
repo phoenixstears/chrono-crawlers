@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://c5nn0i2sb6g3m"]
+
+[ext_resource type="Texture2D" uid="uid://bgld5vr06r852" path="res://sprites/Relics/circle_relic.png" id="1_mvutw"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mvutw"]
+radius = 8.0
+
+[node name="BlueRelic" type="StaticBody2D" groups=["BlueRelic"]]
+collision_layer = 5
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_mvutw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+z_index = 1
+shape = SubResource("CircleShape2D_mvutw")

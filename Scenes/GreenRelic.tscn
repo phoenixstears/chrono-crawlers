@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://cyak602vgm64"]
+
+[ext_resource type="Texture2D" uid="uid://vdegy8s2x2jy" path="res://sprites/Relics/triangle_relic.png" id="1_803qu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dy04m"]
+size = Vector2(16, 15)
+
+[node name="GreenRelic" type="StaticBody2D" groups=["GreenRelic"]]
+collision_layer = 5
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_803qu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+z_index = 1
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_dy04m")

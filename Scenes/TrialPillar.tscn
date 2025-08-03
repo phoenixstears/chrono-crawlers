@@ -1,0 +1,48 @@
+[gd_scene load_steps=7 format=3 uid="uid://c8qs8d7p2ew3k"]
+
+[ext_resource type="Script" uid="uid://c66o2imupg0wt" path="res://Scenes/trial_pillar.gd" id="1_8pftr"]
+[ext_resource type="Texture2D" uid="uid://ce0nyathoibfy" path="res://sprites/Pillar/pillar_getting_ruined.png" id="2_vuxjk"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aeaci"]
+atlas = ExtResource("2_vuxjk")
+region = Rect2(48, 0, 16, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_na3n8"]
+atlas = ExtResource("2_vuxjk")
+region = Rect2(16, 0, 16, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kevpe"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aeaci")
+}],
+"loop": true,
+"name": &"down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_na3n8")
+}],
+"loop": true,
+"name": &"up",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mbv65"]
+size = Vector2(16, 13)
+
+[node name="TrialPillar" type="StaticBody2D" groups=["TrialPillar"]]
+z_index = 2
+collision_layer = 4
+script = ExtResource("1_8pftr")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_kevpe")
+animation = &"up"
+autoplay = "up"
+
+[node name="Collider" type="CollisionShape2D" parent="."]
+position = Vector2(0, 6.5)
+shape = SubResource("RectangleShape2D_mbv65")

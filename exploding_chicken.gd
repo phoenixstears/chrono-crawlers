@@ -17,6 +17,11 @@ func _physics_process(delta: float) -> void:
 			if (object.is_in_group("Enemy") || object.is_in_group("King") || object.is_in_group("Throne")) and not object in hit_enemies_set:
 				hit_enemies_set.append(object)
 				object.take_damage(2 + get_tree().current_scene.get_node("Player").powerup_damage)
+		check_if_pillar_close()
 	if !animation.is_playing():
 		queue_free()
 	
+func check_if_pillar_close():
+	for body in get_tree().get_nodes_in_group("TrialPillar"):
+		if global_position.distance_to(body.global_position) < 25:
+			body.destroy()

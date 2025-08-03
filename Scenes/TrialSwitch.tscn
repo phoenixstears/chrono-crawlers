@@ -1,0 +1,48 @@
+[gd_scene load_steps=7 format=3 uid="uid://jtjgi2qtah1j"]
+
+[ext_resource type="Script" uid="uid://baono37fnudb5" path="res://Scenes/trial_switch.gd" id="1_6sqrp"]
+[ext_resource type="Texture2D" uid="uid://c12170aigo5ps" path="res://sprites/Tiles/0x72_DungeonTilesetII_v1.7.png" id="1_eeo57"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6sqrp"]
+atlas = ExtResource("1_eeo57")
+region = Rect2(80, 208, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cgxnp"]
+atlas = ExtResource("1_eeo57")
+region = Rect2(96, 208, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bgcb8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6sqrp")
+}],
+"loop": true,
+"name": &"off",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cgxnp")
+}],
+"loop": true,
+"name": &"on",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8pe2s"]
+size = Vector2(14, 13)
+
+[node name="TrialSwitch" type="Area2D"]
+script = ExtResource("1_6sqrp")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_bgcb8")
+animation = &"off"
+autoplay = "off"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 0.5)
+shape = SubResource("RectangleShape2D_8pe2s")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
