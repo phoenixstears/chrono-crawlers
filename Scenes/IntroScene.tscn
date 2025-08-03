@@ -1,6 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://bpdxuvpx0k5xo"]
+[gd_scene load_steps=4 format=3 uid="uid://cryy1nv6mnx11"]
 
-[ext_resource type="Script" uid="uid://e01yn0wofad" path="res://Scenes/intro_scene.gd" id="1_qef2n"]
+[ext_resource type="Script" path="res://Scenes/intro_scene.gd" id="1_qef2n"]
 [ext_resource type="FontFile" uid="uid://dobwvaegybdn6" path="res://fonts/C&C Red Alert [INET].ttf" id="1_y0wha"]
 [ext_resource type="AudioStream" uid="uid://dbdrmnmctydtu" path="res://OST/dungeon_idle.ogg" id="3_d4qc4"]
 
