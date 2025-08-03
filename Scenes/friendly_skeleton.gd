@@ -9,6 +9,12 @@ var hit_enemies_set = []
 var alive = false
 
 func _process(delta: float) -> void:
+	if($"../../Player" != null):
+		if $"../../Player".velocity.x < 0:
+			animation.flip_h = true
+		else:
+			animation.flip_h = false
+	
 	if !alive:
 		return
 	else:

@@ -45,7 +45,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Player" parent="." instance=ExtResource("3_joc8x")]
-position = Vector2(-1, 0)
+position = Vector2(-4, 5)
 collision_mask = 132
 
 [node name="Camera2D2" type="Camera2D" parent="Player"]

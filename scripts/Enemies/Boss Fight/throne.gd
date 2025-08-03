@@ -11,6 +11,8 @@ func _process(delta: float) -> void:
 
 func take_damage(_dmg):
 	if !activated:
+		$"../../IdleSound".stop()
+		$"../../FightSound".stop()
 		$Timer.start()
 		activated = true
 

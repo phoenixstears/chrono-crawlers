@@ -35,8 +35,8 @@ func process_state(delta: float) -> void:
 	if !corpse_found:
 		for body in player_root.get_tree().get_nodes_in_group("Corpse"):
 			if player_root.global_position.distance_to(body.global_position) < 30:
-				player_root.warrior_stats["damage"] += 1
-				player_root.warrior_stats["attack_speed"] += 1.0
+				player_root.warrior_stats["damage"] += 0.25
+				player_root.warrior_stats["attack_speed"] += 0.4
 				body.interact()
 				corpse_found = true
 	

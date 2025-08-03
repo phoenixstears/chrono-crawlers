@@ -35,6 +35,7 @@ func _physics_process(delta: float) -> void:
 					can_hit = false
 		elif animation.frame == 13:
 			slashing = false
+			can_hit = true
 			animation.play("chase")
 	else:
 			nav_agent.target_position = target.global_position

@@ -12,7 +12,7 @@ func _ready():
 	randomize()
 	
 func open():
-	var random = randi_range(1,3)
+	var random = randi_range(1,2)
 	match random:
 		1:
 			get_parent().add_child(atk)

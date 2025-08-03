@@ -186,6 +186,8 @@ func take_damage(dmg):
 	current_hp -= dmg
 	if current_hp < 0 and !dead:
 		dead = true
+		for bullet in get_tree().get_nodes_in_group("Bullet"):
+			bullet.queue_free()
 		set_process(false)
 		set_physics_process(false)
 		animation.play("dead")

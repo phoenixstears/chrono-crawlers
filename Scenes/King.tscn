@@ -1,4 +1,4 @@
-[gd_scene load_steps=75 format=3 uid="uid://rx13i4117yii"]
+[gd_scene load_steps=77 format=3 uid="uid://rx13i4117yii"]
 
 [ext_resource type="Script" uid="uid://ca6ogaieuxk2j" path="res://scripts/Enemies/Boss Fight/king.gd" id="1_xg6ta"]
 [ext_resource type="Texture2D" uid="uid://bcytescj5oe5p" path="res://sprites/Enemies/Skeleton King/king_death.png" id="2_e88cv"]
@@ -11,6 +11,8 @@
 [ext_resource type="Script" uid="uid://du3o2iesup2ou" path="res://scripts/Enemies/Boss Fight/king_slash_area.gd" id="7_ikx11"]
 [ext_resource type="Texture2D" uid="uid://dxr2nmrrnd0m2" path="res://sprites/Player Characters/Necromancer/tether.png" id="9_seuhn"]
 [ext_resource type="FontFile" uid="uid://dobwvaegybdn6" path="res://fonts/C&C Red Alert [INET].ttf" id="11_dtym2"]
+[ext_resource type="AudioStream" uid="uid://jlmpd25q7i60" path="res://OST/291458_Waterflame___Time_machine.wav" id="12_fuyhq"]
+[ext_resource type="Script" uid="uid://c25ui155xbehy" path="res://Scenes/audio_stream_player_boss.gd" id="13_vg6ya"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e88cv"]
 size = Vector2(31, 32)
@@ -529,3 +531,8 @@ offset_bottom = 199.0
 scale = Vector2(0.5, 0.5)
 theme_override_fonts/font = ExtResource("11_dtym2")
 horizontal_alignment = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_fuyhq")
+autoplay = true
+script = ExtResource("13_vg6ya")
