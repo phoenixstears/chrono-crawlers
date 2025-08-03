@@ -1,8 +1,6 @@
 extends CanvasLayer
 
 
-
-
 func _unhandled_input(event):
 	if event is InputEventKey:
 		if event.pressed:

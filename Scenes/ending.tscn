@@ -153,17 +153,36 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 376.0
-offset_top = 464.0
-offset_right = 869.23
-offset_bottom = 1464.0
+offset_left = 237.615
+offset_top = 454.5
+offset_right = 799.615
+offset_bottom = 1675.5
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("2_bxiex")
 theme_override_font_sizes/font_size = 48
-text = "THE END
+text = "As all the ancient relics pop
+into place in the skeleton 
+king's scepter, our heroes
+are blinded by a flashing 
+light that returns them to 
+the meadow right in front
+of the ruins, as if 
+none of it ever happened.
 
-Story and or credits"
+The curse of The Time Tomb
+is finally lifted, and all of  its
+inhabitants finally get to rest
+in peace.
+
+The four adventurers decide
+to quit this hobby of theirs
+and decide to start a shrimp
+farm instead. It's much safer
+after all.
+
+THANK YOU FOR PLAYING!
+THE END"
 script = ExtResource("3_hv2aa")
 
 [node name="music" type="AudioStreamPlayer" parent="."]

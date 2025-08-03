@@ -54,27 +54,36 @@ var waves_2 = [
 	{"scene": preload("res://scenes/Mage.tscn"), "position": Vector2(100,1050)}]
 	]
 var waves_3 = [
-	[{"scene": preload("res://scenes/Skeleton.tscn"), "position": Vector2(800,1300)},
+	[{"scene": preload("res://scenes/Skeleton.tscn"), "position": Vector2(800,1100)},
+	{"scene": preload("res://scenes/Skeleton.tscn"), "position": Vector2(800,1200)},
+		{"scene": preload("res://scenes/Skeleton.tscn"), "position": Vector2(800,1300)},
 	{"scene": preload("res://scenes/Skeleton.tscn"), "position": Vector2(800,1400)},
 	{"scene": preload("res://scenes/Skeleton.tscn"), "position": Vector2(800,1500)},
 	{"scene": preload("res://scenes/Skeleton.tscn"), "position": Vector2(800,1600)},
-	{"scene": preload("res://scenes/Mage.tscn"), "position": Vector2(925,1350)},
+	{"scene": preload("res://scenes/Mage.tscn"), "position": Vector2(925,1300)},
+	{"scene": preload("res://scenes/Mage.tscn"), "position": Vector2(925,1400)},
 	{"scene": preload("res://scenes/Mage.tscn"), "position": Vector2(925,1500)},
 	{"scene": preload("res://scenes/Mage.tscn"), "position": Vector2(925,1650)}],
 	
-	[{"scene": preload("res://scenes/Skeleton.tscn"), "position": Vector2(800,1300)},
+	[{"scene": preload("res://scenes/Skeleton.tscn"), "position": Vector2(800,1100)},
+	{"scene": preload("res://scenes/Skeleton.tscn"), "position": Vector2(800,1200)},
+		{"scene": preload("res://scenes/Skeleton.tscn"), "position": Vector2(800,1300)},
 	{"scene": preload("res://scenes/Skeleton.tscn"), "position": Vector2(800,1400)},
 	{"scene": preload("res://scenes/Skeleton.tscn"), "position": Vector2(800,1500)},
 	{"scene": preload("res://scenes/Skeleton.tscn"), "position": Vector2(800,1600)},
-	{"scene": preload("res://scenes/Mage.tscn"), "position": Vector2(925,1350)},
+	{"scene": preload("res://scenes/Mage.tscn"), "position": Vector2(925,1300)},
+	{"scene": preload("res://scenes/Mage.tscn"), "position": Vector2(925,1400)},
 	{"scene": preload("res://scenes/Mage.tscn"), "position": Vector2(925,1500)},
 	{"scene": preload("res://scenes/Mage.tscn"), "position": Vector2(925,1650)}],
 	
-		[{"scene": preload("res://scenes/Skeleton.tscn"), "position": Vector2(800,1300)},
+	[{"scene": preload("res://scenes/Skeleton.tscn"), "position": Vector2(800,1100)},
+	{"scene": preload("res://scenes/Skeleton.tscn"), "position": Vector2(800,1200)},
+		{"scene": preload("res://scenes/Skeleton.tscn"), "position": Vector2(800,1300)},
 	{"scene": preload("res://scenes/Skeleton.tscn"), "position": Vector2(800,1400)},
 	{"scene": preload("res://scenes/Skeleton.tscn"), "position": Vector2(800,1500)},
 	{"scene": preload("res://scenes/Skeleton.tscn"), "position": Vector2(800,1600)},
-	{"scene": preload("res://scenes/Mage.tscn"), "position": Vector2(925,1350)},
+	{"scene": preload("res://scenes/Mage.tscn"), "position": Vector2(925,1300)},
+	{"scene": preload("res://scenes/Mage.tscn"), "position": Vector2(925,1400)},
 	{"scene": preload("res://scenes/Mage.tscn"), "position": Vector2(925,1500)},
 	{"scene": preload("res://scenes/Mage.tscn"), "position": Vector2(925,1650)}]
 	]
@@ -280,6 +289,8 @@ func _process(delta: float):
 		room2_cleared = true
 		$FightSound.stop()
 		$IdleSound.play()
+		if Global.level == 3:
+			$Player.show_dialogue("These trials must unlock something more than the way further....")
 	elif current_wave_3 > 0 and current_wave_3 < 3:
 		if get_tree().get_nodes_in_group("Enemy").is_empty():
 			spawn_wave_3()
