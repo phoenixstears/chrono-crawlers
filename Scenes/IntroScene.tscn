@@ -1,0 +1,44 @@
+[gd_scene load_steps=4 format=3 uid="uid://bpdxuvpx0k5xo"]
+
+[ext_resource type="Script" uid="uid://e01yn0wofad" path="res://Scenes/intro_scene.gd" id="1_qef2n"]
+[ext_resource type="FontFile" uid="uid://dobwvaegybdn6" path="res://fonts/C&C Red Alert [INET].ttf" id="1_y0wha"]
+[ext_resource type="AudioStream" uid="uid://dbdrmnmctydtu" path="res://OST/dungeon_idle.ogg" id="3_d4qc4"]
+
+[node name="IntroScene" type="Area2D"]
+script = ExtResource("1_qef2n")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -935.0
+offset_top = -493.0
+offset_right = 967.0
+offset_bottom = 565.0
+color = Color(0, 0, 0, 1)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -425.5
+offset_top = -268.5
+offset_right = 425.5
+offset_bottom = 268.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_y0wha")
+theme_override_font_sizes/font_size = 48
+text = "This story begins with a dungeon crawl like any other.
+
+Four brave adventurers decide to team up in order to clear
+a dungeon with quite the peculiar name - The Time Tomb.
+
+Little do they know that they are about to find out exactly
+where the name comes from...
+
+                    PRESS ANY BUTTON TO CONTINUE"
+
+[node name="music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_d4qc4")

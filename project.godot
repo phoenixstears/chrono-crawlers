@@ -32,6 +32,8 @@ Enemy=""
 Door=""
 Player=""
 King=""
+Pillar=""
+Chest=""
 
 [input]
 

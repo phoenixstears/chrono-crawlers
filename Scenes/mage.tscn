@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://cwcpa4jp05445"]
+[gd_scene load_steps=30 format=3 uid="uid://cwcpa4jp05445"]
 
 [ext_resource type="Script" uid="uid://c5crex1iyx12h" path="res://Scenes/mage.gd" id="1_bbshb"]
 [ext_resource type="PackedScene" uid="uid://nn2dcc4k3mdw" path="res://Scenes/Bullet.tscn" id="2_h01ui"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://c3d4nxnlggln2" path="res://sprites/Enemies/Mage/mage_skeleton_death.png" id="4_qippj"]
 [ext_resource type="Texture2D" uid="uid://mucn2dt0ulwi" path="res://sprites/Enemies/Mage/mage_skeleton_idle.png" id="5_qippj"]
 [ext_resource type="Texture2D" uid="uid://cob8xrxy1070v" path="res://sprites/Enemies/Mage/mage_skeleton_walking.png" id="5_tf4tv"]
+[ext_resource type="AudioStream" uid="uid://bydq3lrtmdooq" path="res://SFX/mage_death.wav" id="7_tf4tv"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jtp6b"]
 atlas = ExtResource("3_254od")
@@ -195,5 +196,10 @@ shape = SubResource("RectangleShape2D_qippj")
 position = Vector2(6, -3)
 
 [node name="Timer" type="Timer" parent="."]
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+
+[node name="DeathSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_tf4tv")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

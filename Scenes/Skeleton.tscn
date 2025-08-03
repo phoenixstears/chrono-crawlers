@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://b4gwu3a5uwk3b"]
+[gd_scene load_steps=36 format=3 uid="uid://b4gwu3a5uwk3b"]
 
 [ext_resource type="Script" uid="uid://bxqrfgdswcv8p" path="res://Scenes/skeleton.gd" id="1_abfcy"]
 [ext_resource type="Texture2D" uid="uid://cjcevenkivm67" path="res://sprites/Enemies/Skeleton/skeleton_slash_corrected.png" id="2_iuen5"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dupn6vq15oh2m" path="res://sprites/Enemies/Skeleton/skeleton_death.png" id="4_iuen5"]
 [ext_resource type="Script" uid="uid://ehgs48w5c5j4" path="res://Scenes/skeleton_pivot.gd" id="5_yek4v"]
 [ext_resource type="Texture2D" uid="uid://bnv6q500kwk2l" path="res://sprites/Enemies/Skeleton/skeleton_slash_particles.png" id="6_2bjux"]
+[ext_resource type="AudioStream" uid="uid://bjti8texn4dpj" path="res://SFX/skeleton_death.wav" id="7_2bjux"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rxd7e"]
 atlas = ExtResource("2_iuen5")
@@ -231,3 +232,8 @@ polygon = PackedVector2Array(0, -8, 23, -3.3, 23, 3.3, 0, 8)
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Area2D"]
 position = Vector2(16, 0)
 sprite_frames = SubResource("SpriteFrames_ijbhh")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+
+[node name="DeathSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_2bjux")

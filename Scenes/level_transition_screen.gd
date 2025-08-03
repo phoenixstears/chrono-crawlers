@@ -3,6 +3,7 @@ extends Node2D
 
 
 func _ready():
+	Global.save_progress(Global.level)
 	for i in range (0,Global.level):
 		$Label.text+= "?"
 	$AudioStreamPlayer.play()

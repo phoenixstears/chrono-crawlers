@@ -1,14 +1,24 @@
 extends Node2D
 
 var top_open = false
-
+var side_open = false
 func _process(delta: float):
 	check_for_bottom_relic_done()
+	check_for_side_relic_done()
+	
+func check_for_side_relic_done():
+	if !side_open:
+		if Global.level >= 3:
+			$SideSecretWall.open()
+			side_open = true
+		
 	
 func check_for_bottom_relic_done():
 	if !top_open : 
 		if torch_check():
 			$TopSecretWall.open()
+			$TopSecretWalls.visible = true
+			$TopSecretFloor.visible = true
 			top_open = true
 # TOBY FOX'S SCHOOL OF GAME DEV AND SOFTWARE ENGINEERING RIGHT HERE
 func torch_check():

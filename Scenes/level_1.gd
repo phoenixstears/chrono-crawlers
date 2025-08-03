@@ -118,25 +118,56 @@ func spawn_boss():
 		add_child(enemy)
 func _ready():
 	spawn_wave_1()
-
+	$FightSound.play()
+	if Global.level == 1:
+		await get_tree().create_timer(1.0).timeout
+		$Player.show_dialogue("W-Why are we back here again?")
+		await get_tree().create_timer(5.0).timeout
+		$Player.show_dialogue("There's no way that pile of bones was telling the truth!....right?")
+	elif Global.level == 2:
+		await get_tree().create_timer(1.0).timeout
+		$Player.show_dialogue("Not again! You can't be serious!")
+		await get_tree().create_timer(5.0).timeout
+		$Player.show_dialogue("I suppose we have to do as he says.. let's look for the relics!")
+	elif Global.level == 3:
+		await get_tree().create_timer(1.0).timeout
+		$Player.show_dialogue("Here we go again...")
+		await get_tree().create_timer(5.0).timeout
+		$Player.show_dialogue("Hold on, I think I heard something fall!")
+	elif Global.level > 3:
+		await get_tree().create_timer(1.0).timeout
+		$Player.show_dialogue("...")
+	if Global.level >=3:
+		$Level/SideSecretWalls.visible = true
+		$Level/SideSecretFloor.visible = true
 func _process(delta: float):
 	if $Level/RightDoor2 == null and current_wave_2 == 0:
 		spawn_wave_2()
+		$IdleSound.stop()
+		$FightSound.play()
 	if $Level/TopDoor4 == null and current_wave_3 == 0:
 		spawn_wave_3()
+		$IdleSound.stop()
+		$FightSound.play()
 	if $Level/TopDoor2 == null and boss_spawned == false:
+		if Global.level == 0:
+			$Player.show_dialogue("Wow, the boss room already? That was easy!")
 		spawn_boss()
 	if current_wave_1 <= 2:
 		if get_tree().get_nodes_in_group("Enemy").is_empty():
 			spawn_wave_1()
-	elif room1_cleared == false:
+	elif room1_cleared == false and get_tree().get_nodes_in_group("Enemy").is_empty():
 		$Level/RightDoor.unlocked = true
 		$Level/RightDoor2.unlocked = true
 		room1_cleared = true
+		if Global.level == 0:
+			$Player.show_dialogue("Alright, first room cleared, many to go!")
+		$FightSound.stop()
+		$IdleSound.play()
 	elif current_wave_2 > 0 and current_wave_2 < 3:
 		if get_tree().get_nodes_in_group("Enemy").is_empty():
 			spawn_wave_2()
-	elif current_wave_2 > 2 and room2_cleared == false:
+	elif current_wave_2 > 2 and room2_cleared == false and get_tree().get_nodes_in_group("Enemy").is_empty():
 		$Level/LeftDoor.unlocked = true
 		$Level/LeftDoor2.unlocked = true
 		$Level/LeftDoor3.unlocked = true
@@ -153,18 +184,26 @@ func _process(delta: float):
 		$Level/TopDoor4.unlocked = true
 		$Level/TopDoor5.unlocked = true
 		room2_cleared = true
+		$FightSound.stop()
+		$IdleSound.play()
 	elif current_wave_3 > 0 and current_wave_3 < 3:
 		if get_tree().get_nodes_in_group("Enemy").is_empty():
 			spawn_wave_3()
-	elif current_wave_3 > 2 and room3_cleared == false:
+	elif current_wave_3 > 2 and room3_cleared == false and get_tree().get_nodes_in_group("Enemy").is_empty():
 		$Level/TopDoor2.unlocked = true
 		$Level/TopDoor3.unlocked = true
 		room3_cleared = true
+		$FightSound.stop()
+		$IdleSound.play()
 	elif $Level/TopDoor2 == null and boss_spawned == false:
 		spawn_boss()
 		boss_spawned = true
 	elif boss_spawned == true:
 		if get_tree().get_nodes_in_group("Enemy").is_empty():
+			if Global.level == 0:
+				$Player.show_dialogue("He left something behind...")
+			elif Global.level == 1:
+				$Player.show_dialogue("Surely this time it won't send us back!")
 			await get_tree().create_timer(1.5).timeout
 			Global.level += 1
 			get_tree().change_scene_to_file("res://Scenes/level_transition_screen.tscn")

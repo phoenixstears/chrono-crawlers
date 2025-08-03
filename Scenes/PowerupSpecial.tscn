@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://cisqq5nurggc5"]
+
+[ext_resource type="Script" uid="uid://2p6ilqipp7c7" path="res://Scenes/powerup_special.gd" id="1_nyxkr"]
+[ext_resource type="Texture2D" uid="uid://dung5kqhivx8b" path="res://sprites/Powerups/clock_powerup.png" id="1_pmkrg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nyxkr"]
+size = Vector2(16, 16)
+
+[node name="PowerupSpecial" type="Area2D"]
+z_index = 4
+script = ExtResource("1_nyxkr")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_pmkrg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_nyxkr")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

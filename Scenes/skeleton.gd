@@ -4,6 +4,7 @@ extends CharacterBody2D
 @onready var animation = $Skeleton
 @onready var slash_area = $Area2D
 @onready var slash_animation = $Area2D/AnimatedSprite2D
+@onready var nav_agent = $NavigationAgent2D
 
 var speed = 55
 var max_hp = 5
@@ -30,13 +31,17 @@ func _physics_process(delta: float) -> void:
 			slashing = false
 			animation.play("chase")
 	else:
-		var distance = self.global_position.distance_to(target.global_position)
-		var direction = (target.global_position - global_position).normalized()
-		velocity = direction * speed
-		if distance > 15:
-			move_and_slide()
-		else:
-			attack_player()
+			nav_agent.target_position = target.global_position
+			if nav_agent.is_navigation_finished():
+				return
+
+			var next_point = nav_agent.get_next_path_position()
+			var direction = (next_point - global_position).normalized()
+			var distance = self.global_position.distance_to(target.global_position)
+			if distance > 15:
+				position += direction * speed * delta
+			else:
+				attack_player()
 	
 	if !slash_animation.is_playing():
 		slash_animation.visible = false
@@ -50,6 +55,7 @@ func take_damage(dmg):
 	if current_hp <= 0:
 		set_process(false)
 		set_physics_process(false)
+		$DeathSound.play()
 		$Skeleton.play("dead")
 		await $Skeleton.animation_finished
 		queue_free()
