@@ -6,7 +6,7 @@
 [ext_resource type="AudioStream" uid="uid://cjobj28vq0wmf" path="res://OST/dungeon_fight.ogg" id="3_ysn8j"]
 [ext_resource type="PackedScene" uid="uid://ceblrkcjtni8w" path="res://Scenes/Room_1.tscn" id="6_t3or0"]
 [ext_resource type="FontFile" uid="uid://dobwvaegybdn6" path="res://fonts/C&C Red Alert [INET].ttf" id="9_kylad"]
-[ext_resource type="Script" path="res://Scenes/pause_menu.gd" id="10_2h8qs"]
+[ext_resource type="Script" uid="uid://dodvy3t3yb0ts" path="res://Scenes/pause_menu.gd" id="10_2h8qs"]
 
 [node name="Level1" type="Node"]
 script = ExtResource("1_bdlbp")
@@ -45,7 +45,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Player" parent="." instance=ExtResource("3_joc8x")]
-z_index = 1
+collision_mask = 132
 
 [node name="Camera2D2" type="Camera2D" parent="Player"]
 position = Vector2(-35, -77)

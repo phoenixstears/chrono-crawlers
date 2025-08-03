@@ -78,9 +78,15 @@ var waves_3 = [
 	{"scene": preload("res://scenes/Mage.tscn"), "position": Vector2(925,1500)},
 	{"scene": preload("res://scenes/Mage.tscn"), "position": Vector2(925,1650)}]
 	]
-var wave_boss = [
-	[{"scene": preload("res://scenes/Skeleton.tscn"), "position": Vector2(1810,1250)}]
-]
+var wave_warrior_trial = 	[{"scene": preload("res://scenes/Mage.tscn"), "position": Vector2(-261,1322)},
+	{"scene": preload("res://scenes/Mage.tscn"), "position": Vector2(-261,1357)},
+	{"scene": preload("res://scenes/Mage.tscn"), "position": Vector2(-229,1322)},
+	{"scene": preload("res://scenes/Mage.tscn"), "position": Vector2(-229,1357)},
+	{"scene": preload("res://scenes/Mage.tscn"), "position": Vector2(-197,1322)},
+	{"scene": preload("res://scenes/Mage.tscn"), "position": Vector2(-197,1357)}]
+
+var wave_mage_trial = [{"scene": preload("res://scenes/Skeleton.tscn"), "position": Vector2(323,1236)},
+	{"scene": preload("res://scenes/Skeleton.tscn"), "position": Vector2(323,1332)}]
 
 
 
@@ -92,6 +98,16 @@ var room2_cleared = false
 var current_wave_3 = 0
 var room3_cleared = false
 var boss_spawned = false
+var warrior_trial_spawned = false
+var warrior_trial_cleared = false
+var warrior_door_opened = false
+var mage_trial_spawned = false
+var mage_trial_cleared = false
+var mage_door_opened = false
+var marksman_trial_cleared = false
+var demolitionist_trial_cleared = false
+var pillar_destroyed = false
+var bottom_open
 func spawn_wave_1():
 	for enemy_data in waves_1[current_wave_1]:
 		var enemy = enemy_data["scene"].instantiate()
@@ -111,8 +127,13 @@ func spawn_wave_3():
 		enemy.position = enemy_data["position"]
 		add_child(enemy)
 	current_wave_3 += 1
-func spawn_boss():
-	for enemy_data in wave_boss[0]:
+func spawn_warrior_trial_wave():
+	for enemy_data in wave_warrior_trial:
+		var enemy = enemy_data["scene"].instantiate()
+		enemy.position = enemy_data["position"]
+		add_child(enemy)
+func spawn_mage_trial_wave():
+	for enemy_data in wave_mage_trial:
 		var enemy = enemy_data["scene"].instantiate()
 		enemy.position = enemy_data["position"]
 		add_child(enemy)
@@ -152,7 +173,38 @@ func _process(delta: float):
 	if $Level/TopDoor2 == null and boss_spawned == false:
 		if Global.level == 0:
 			$Player.show_dialogue("Wow, the boss room already? That was easy!")
-		spawn_boss()
+	if $Level/LeftDoor8 == null:
+		if !warrior_trial_spawned:
+			spawn_warrior_trial_wave()
+			warrior_trial_spawned = true
+		elif get_tree().get_nodes_in_group("Enemy").is_empty():
+			warrior_trial_cleared = true
+	if warrior_trial_cleared and !warrior_door_opened:
+		warrior_door_opened = true
+		$Level/LeftDoor12.unlocked = true
+	if $Level/LeftDoor2 == null:
+		if !mage_trial_spawned:
+			spawn_mage_trial_wave()
+			mage_trial_spawned = true
+		elif get_tree().get_nodes_in_group("Enemy").is_empty():
+			mage_trial_cleared = true
+	if mage_trial_cleared and !mage_door_opened:
+		mage_door_opened = true
+		$Level/LeftDoor9.unlocked = true
+	if $Level/TrialSwitch.toggled == true and !marksman_trial_cleared:
+		marksman_trial_cleared = true
+		$Level/TrialWall2.destroy()
+		$Level/TrialWall3.destroy()
+		$Level/TrialWall4.destroy()
+		$Level/TrialWall5.destroy()
+		$Level/TrialWall6.destroy()
+		$Level/TrialWall7.destroy()
+		$Level/TrialWall8.destroy()
+		$Level/LeftDoor11.unlocked = true
+	pillar_destroyed = $Level/TrialPillar.destroyed or $Level/TrialPillar2.destroyed or $Level/TrialPillar3.destroyed or $Level/TrialPillar4.destroyed or $Level/TrialPillar5.destroyed or $Level/TrialPillar6.destroyed
+	if pillar_destroyed and !demolitionist_trial_cleared:
+		demolitionist_trial_cleared = true
+		$Level/LeftDoor10.unlocked = true
 	if current_wave_1 <= 2:
 		if get_tree().get_nodes_in_group("Enemy").is_empty():
 			spawn_wave_1()
@@ -176,10 +228,6 @@ func _process(delta: float):
 		$Level/LeftDoor6.unlocked = true
 		$Level/LeftDoor7.unlocked = true
 		$Level/LeftDoor8.unlocked = true
-		$Level/LeftDoor9.unlocked = true
-		$Level/LeftDoor10.unlocked = true
-		$Level/LeftDoor11.unlocked = true
-		$Level/LeftDoor12.unlocked = true
 		$Level/TopDoor.unlocked = true
 		$Level/TopDoor4.unlocked = true
 		$Level/TopDoor5.unlocked = true
@@ -196,18 +244,13 @@ func _process(delta: float):
 		$FightSound.stop()
 		$IdleSound.play()
 	elif $Level/TopDoor2 == null and boss_spawned == false:
-		spawn_boss()
 		boss_spawned = true
-	elif boss_spawned == true:
-		if get_tree().get_nodes_in_group("Enemy").is_empty():
-			if Global.level == 0:
-				$Player.show_dialogue("He left something behind...")
-			elif Global.level == 1:
-				$Player.show_dialogue("Surely this time it won't send us back!")
-			await get_tree().create_timer(1.5).timeout
-			Global.level += 1
-			get_tree().change_scene_to_file("res://Scenes/level_transition_screen.tscn")
-
+	if mage_trial_cleared and marksman_trial_cleared and warrior_trial_cleared and demolitionist_trial_cleared and !bottom_open:
+		bottom_open = true
+		$Level/BottomSecretWall.open()
+		$Level/BottomSecretWalls.visible = true
+		$Level/BottomSecretFloor.visible = true
+		
 func _unhandled_input(event):
 	if event is InputEventKey:
 		if event.pressed and event.keycode == KEY_ESCAPE:

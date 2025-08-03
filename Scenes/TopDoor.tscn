@@ -3,15 +3,15 @@
 [ext_resource type="Script" uid="uid://biejjojmswhxw" path="res://Scenes/left_door.gd" id="1_l00kg"]
 [ext_resource type="Texture2D" uid="uid://brnmtpny50os4" path="res://sprites/Tiles/Dungeon_Tileset_at-export.png" id="2_s3rya"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_5yx7y"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_s3rya"]
 atlas = ExtResource("2_s3rya")
-region = Rect2(160, 128, 16, 16)
+region = Rect2(170, 128, 6, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_n5mc0"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_5yx7y")
+"texture": SubResource("AtlasTexture_s3rya")
 }],
 "loop": true,
 "name": &"default",
@@ -26,6 +26,7 @@ collision_layer = 5
 script = ExtResource("1_l00kg")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(5, 0)
 sprite_frames = SubResource("SpriteFrames_n5mc0")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

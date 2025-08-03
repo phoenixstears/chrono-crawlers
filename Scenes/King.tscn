@@ -1,4 +1,4 @@
-[gd_scene load_steps=74 format=3 uid="uid://rx13i4117yii"]
+[gd_scene load_steps=75 format=3 uid="uid://rx13i4117yii"]
 
 [ext_resource type="Script" uid="uid://ca6ogaieuxk2j" path="res://scripts/Enemies/Boss Fight/king.gd" id="1_xg6ta"]
 [ext_resource type="Texture2D" uid="uid://bcytescj5oe5p" path="res://sprites/Enemies/Skeleton King/king_death.png" id="2_e88cv"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://dcs0cdy7xpo13" path="res://sprites/Enemies/Skeleton King/skeleton_king_slash_particles.png" id="6_mi4h6"]
 [ext_resource type="Script" uid="uid://du3o2iesup2ou" path="res://scripts/Enemies/Boss Fight/king_slash_area.gd" id="7_ikx11"]
 [ext_resource type="Texture2D" uid="uid://dxr2nmrrnd0m2" path="res://sprites/Player Characters/Necromancer/tether.png" id="9_seuhn"]
+[ext_resource type="FontFile" uid="uid://dobwvaegybdn6" path="res://fonts/C&C Red Alert [INET].ttf" id="11_dtym2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e88cv"]
 size = Vector2(31, 32)
@@ -519,3 +520,12 @@ initial_velocity_min = 50.0
 initial_velocity_max = 50.0
 angular_velocity_min = 15.0
 angular_velocity_max = 25.0
+
+[node name="DialogueBox" type="Label" parent="."]
+offset_left = -176.0
+offset_top = 12.0
+offset_right = 547.0
+offset_bottom = 199.0
+scale = Vector2(0.5, 0.5)
+theme_override_fonts/font = ExtResource("11_dtym2")
+horizontal_alignment = 1
