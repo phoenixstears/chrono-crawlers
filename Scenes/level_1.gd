@@ -99,6 +99,10 @@ var warrior_corpse_scene = preload("res://Scenes/warrior_skeleton.tscn")
 var priest_corpse_scene = preload("res://Scenes/priest_skeleton.tscn")
 var farmer_corpse_scene = preload("res://Scenes/farmer_skeleton.tscn")
 
+var cracked_egg_scene = preload("res://Scenes/cracked_egg.tscn")
+var wing_powerup = preload("res://Scenes/PowerupSpeed.tscn")
+var strength_powerup = preload("res://Scenes/PowerupAttack.tscn")
+
 func spawn_wave_1():
 	for enemy_data in waves_1[current_wave_1]:
 		var enemy = enemy_data["scene"].instantiate()
@@ -140,8 +144,24 @@ func spawn_previous_character_corpses():
 	add_child(farmer_corpse)
 	farmer_corpse.global_position = Global.farmer_previous_death
 
+func spawn_powerups():
+	var rng = RandomNumberGenerator.new()
+	var powerups = [wing_powerup, strength_powerup]
+	for pos in Global.egg_positions:
+		print(pos)
+		var egg = cracked_egg_scene.instantiate()
+		get_tree().current_scene.add_child(egg)
+		egg.global_position = pos
+		
+		var powerup_scene = powerups[rng.randi_range(0, 1)]
+		var powerup = powerup_scene.instantiate()
+		get_tree().current_scene.add_child(powerup)
+		powerup.global_position = pos + Vector2(-2, -8)
+	Global.egg_positions = []
+
 func _ready():
 	spawn_previous_character_corpses()
+	spawn_powerups()
 	
 	spawn_wave_1()
 	$FightSound.play()

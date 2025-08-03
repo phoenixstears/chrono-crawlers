@@ -18,7 +18,7 @@ enum States {WALKING, PROJECTILE, SLASHING, SUMMONING}
 var current_state = States.WALKING
 var current_state_idx = 0
 const base_speed = 80
-var states_list = [States.SUMMONING, States.SLASHING]
+var states_list = [States.PROJECTILE, States.SUMMONING, States.SLASHING]
 
 # Slash related stuff
 const dashing_speed = 130
@@ -29,7 +29,7 @@ var can_hit_player = false
 # Projectile attack
 var shooting_waves = false
 var shooting_projectiles_currently = false
-var projectile_waves = [projectile_wave_circle, projectile_wave_targeted, projectile_wave_spiral]
+var projectile_waves = [projectile_wave_spiral, projectile_wave_targeted, projectile_wave_circle]
 var current_wave_idx = 0
 
 # Summon attack
@@ -40,13 +40,13 @@ const skeleton_spawn_count = 4
 var min_dist_from_player = 50
 var max_dist_from_player = 100
 
-const max_hp = 10
-var current_hp = 10
+const max_hp = 40
+var current_hp = 40
 var dead = false
 
 func _ready() -> void:
 	slash_particle_animation.visible = false
-	print(get_parent())
+
 
 func _process(delta: float) -> void:
 	if dead:

@@ -1,11 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://beuseagnswelk"]
+[gd_scene load_steps=4 format=3 uid="uid://beuseagnswelk"]
 
 [ext_resource type="Texture2D" uid="uid://bl6nk3uxl5qew" path="res://sprites/Player Characters/Priest/priest_skeleton.png" id="1_17wt0"]
+[ext_resource type="Script" uid="uid://bny5nfc6wv0bi" path="res://Scenes/corpse_interaction.gd" id="1_h70gd"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_sys1k"]
 radius = 9.2
 
-[node name="PriestSkeleton" type="StaticBody2D"]
+[node name="PriestSkeleton" type="StaticBody2D" groups=["Corpse"]]
+z_index = 1
+script = ExtResource("1_h70gd")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_sys1k")

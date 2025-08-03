@@ -30,7 +30,7 @@ func _physics_process(delta: float) -> void:
 		if can_hit && (animation.frame == 4 || animation.frame == 5):
 			for object in slash_area.get_overlapping_bodies():
 				if object.is_in_group("Player"):
-					object.take_damage
+					object.take_damage()
 					can_hit = false
 		elif animation.frame == 13:
 			slashing = false

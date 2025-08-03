@@ -9,8 +9,10 @@ var hit_enemies_set = []
 func enter_state() -> void:
 	state_type = BaseState.State.ATTACK
 	character_animation.play("attack")
+	character_animation.speed_scale = player_root.warrior_stats["attack_speed"]
 	swing_animation = player_root.get_node("Pivot/WarriorSwingAnimation")
 	swing_area = player_root.get_node("Pivot")
+	swing_animation.speed_scale = player_root.warrior_stats["attack_speed"]
 
 func check_and_transition_to_idle() -> bool:
 	if !character_animation.is_playing() && player_root.velocity == Vector2.ZERO:
@@ -48,8 +50,16 @@ func process_state(delta: float) -> void:
 		for object in swing_area.get_overlapping_bodies():
 			if (object.is_in_group("Enemy") || object.is_in_group("Throne") || object.is_in_group("King")) and not object in hit_enemies_set:
 				hit_enemies_set.append(object)
-				object.take_damage(2)
-	
+				object.take_damage(player_root.warrior_stats["damage"] + player_root.powerup_damage)
+		for object in swing_area.get_overlapping_areas():
+			if object.is_in_group("Bullet") and not object in hit_enemies_set:
+				hit_enemies_set.append(object)
+				object.can_hit_player = false
+				object.queue_free()
+			
+	if character_animation.frame == 5:
+		character_animation.speed_scale = 1.0
+		swing_animation.speed_scale = 1.0
 	
 	
 	

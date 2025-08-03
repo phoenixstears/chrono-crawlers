@@ -1,15 +1,13 @@
-class_name FarmerAttackState
+class_name WarriorAbilityState
 extends BaseState
 
-var bullet_scene = preload("res://Scenes/exploding_chicken.tscn")
-var bullet_spawn 
-var can_shoot
+var corpse_found = false
+var hit_enemies_set = []
 
 func enter_state() -> void:
-	state_type = BaseState.State.ATTACK
-	character_animation.play("attack")
-	bullet_spawn = player_root.get_node("Pivot")
-	can_shoot = true
+	corpse_found = false
+	state_type = BaseState.State.ABILITY
+	character_animation.play("ability")
 
 func check_and_transition_to_idle() -> bool:
 	if !character_animation.is_playing() && player_root.velocity == Vector2.ZERO:
@@ -21,9 +19,12 @@ func check_and_transition_to_walking() -> bool:
 		state_controller.transition_to_state(BaseState.State.WALKING)
 	return false
 func check_and_transition_to_attack() -> bool:
-	return false
+	if !character_animation.is_playing() && Input.is_action_just_pressed("mouse_left"):
+		state_controller.transition_to_state(BaseState.State.ATTACK)
+	return true
 func check_and_transition_to_dead() -> bool:
 	return false
+
 
 func process_state(delta: float) -> void:
 	if Input.is_action_just_pressed("left") && !character_animation.flip_h:
@@ -31,11 +32,12 @@ func process_state(delta: float) -> void:
 	if Input.is_action_just_pressed("right") && character_animation.flip_h:
 		character_animation.flip_h = false
 		
-	if character_animation.frame == 2 && can_shoot:
-		shoot_bullet()
-		can_shoot = false
-
-func shoot_bullet():
-	var bullet = bullet_scene.instantiate()
-	player_root.get_tree().current_scene.add_child(bullet)  
-	bullet.global_position = bullet_spawn.global_position
+	if !corpse_found:
+		for body in player_root.get_tree().get_nodes_in_group("Corpse"):
+			if player_root.global_position.distance_to(body.global_position) < 30:
+				player_root.warrior_stats["damage"] += 1
+				player_root.warrior_stats["attack_speed"] += 1.0
+				body.interact()
+				corpse_found = true
+	
+	

@@ -38,11 +38,11 @@ func process_state(delta: float) -> void:
 		character_animation.flip_h = false
 		
 	for object in necromancer_drain_area.get_overlapping_bodies():
-		if object is CharacterBody2D && (object.is_in_group("Enemy") || object.is_in_group("King") || object.is_in_group("Throne")):
+		if (object.is_in_group("Enemy") || object.is_in_group("King") || object.is_in_group("Throne")):
 			if object in drain_dict:
 				drain_dict[object] += 1
 				if drain_dict[object] == 100:
-					object.take_damage(1)
+					object.take_damage(1 + player_root.powerup_damage)
 					drain_dict[object] = 0
 			else:
 				#var t = tether.instantiate()

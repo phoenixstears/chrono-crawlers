@@ -3,7 +3,7 @@ extends CharacterBody2D
 
 var player_root
 
-enum State {UNDEFINED, IDLE, WALKING, ATTACK, DEAD}
+enum State {UNDEFINED, IDLE, WALKING, ATTACK, DEAD, ABILITY}
 var character_animation
 var state_controller: StateController
 var state_type
@@ -31,7 +31,11 @@ func check_and_transition_to_attack() -> bool:
 	return false
 func check_and_transition_to_dead() -> bool:
 	return false
-
+func check_and_transition_to_ability() -> bool:
+	if Input.is_action_just_pressed("mouse_right"):
+		state_controller.transition_to_state(BaseState.State.ABILITY)
+		return true
+	return false
 func check_movement_inputs() -> bool:
 	return Input.is_action_pressed("left") || Input.is_action_pressed("right") || Input.is_action_pressed("up") || Input.is_action_pressed("down")
 

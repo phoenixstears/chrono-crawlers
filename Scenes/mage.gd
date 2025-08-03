@@ -20,6 +20,7 @@ func _physics_process(delta: float) -> void:
 	if spawning:
 		if animation.frame == 7:
 			spawning = false
+		return
 	var distance = self.global_position.distance_to(target.global_position)
 	var direction = (target.global_position - global_position).normalized()
 	if animation.animation == "attack" && animation.frame == 9:

@@ -1,14 +1,17 @@
 extends Node
 
-var square_relic_acquired: bool = true
-var triangle_relic_acquired: bool = true
-var circle_relic_acquired: bool = true
+var square_relic_acquired: bool = false
+var triangle_relic_acquired: bool = false
+var circle_relic_acquired: bool = false
 
 # Character corpses implementation
 var necromancer_previous_death: Vector2 = Vector2(-1000, -1000)
 var farmer_previous_death: Vector2 = Vector2(-1000, -1000)
 var priest_previous_death: Vector2 = Vector2(-1000, -1000)
 var warrior_previous_death: Vector2 = Vector2(-1000, -1000)
+
+# Farmer powerups
+var egg_positions = []
 
 var level = 0
 var sound_volume = 50
@@ -29,9 +32,6 @@ func save_settings():
 	var config = ConfigFile.new()
 	config.set_value("volume","music",sound_volume)
 	config.save("res://data/settings.cfg")
-
-
-
 	
 func load_saves():
 	var config = ConfigFile.new()

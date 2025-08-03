@@ -1,11 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://doe8b6a6c1ejm"]
+[gd_scene load_steps=4 format=3 uid="uid://doe8b6a6c1ejm"]
 
+[ext_resource type="Script" uid="uid://bny5nfc6wv0bi" path="res://Scenes/corpse_interaction.gd" id="1_cm1c5"]
 [ext_resource type="Texture2D" uid="uid://nrrs3pktk7rg" path="res://sprites/Player Characters/Farmer/farmer_skeleton.png" id="1_q6d8k"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_sys1k"]
 radius = 9.2
 
-[node name="FarmerSkeleton" type="StaticBody2D"]
+[node name="FarmerSkeleton" type="StaticBody2D" groups=["Corpse"]]
+script = ExtResource("1_cm1c5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_sys1k")

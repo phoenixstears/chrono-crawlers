@@ -7,6 +7,7 @@
 radius = 4.0
 
 [node name="PriestProjectile" type="Area2D"]
+collision_mask = 5
 script = ExtResource("1_7baj4")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

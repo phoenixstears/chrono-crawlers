@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://dhib0sytkhmr5"]
+
+[ext_resource type="Texture2D" uid="uid://ba55amre25jev" path="res://sprites/Player Characters/Farmer/chickenegg_broken.png" id="1_88onc"]
+
+[node name="CrackedEgg" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-2, 0)
+texture = ExtResource("1_88onc")

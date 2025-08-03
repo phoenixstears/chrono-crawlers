@@ -8,9 +8,32 @@ extends CharacterBody2D
 var saw_pillar = false
 var state_controller = StateController.new()
 
+var warrior_stats = {
+	"damage": 2,
+	"attack_speed": 1.0
+}
+
+var priest_unlocks = {
+	"necromancer": false,
+	"warrior": false,
+	"priest": false,
+	"farmer": false
+}
+
+var necromancer_summons = {
+	"FriendlySkeleton1" = false,
+	"FriendlySkeleton2" = false,
+	"FriendlySkeleton3" = false,
+	"FriendlySkeleton4" = false
+}
+
 const unselected_alpha = 0.2
 
 const speed = 100
+var powerup_speed = 0
+
+var powerup_damage = 0
+
 const frame_distance = 12
 var positions_buffer = []
 
@@ -75,13 +98,13 @@ func _process(delta: float) -> void:
 		var king = check_if_dead_king_close()
 		if king != null:
 			for character in queue_positions:
-				if character.name == necromancer:
+				if character.name == "necromancer":
 					Global.necromancer_previous_death = Vector2(-1000, -1000)
-				elif character.name == warrior:
+				elif character.name == "warrior":
 					Global.warrior_previous_death = Vector2(-1000,-1000)
-				elif character.name == priest:
+				elif character.name == "priest":
 					Global.warrior_previous_death = Vector2(-1000,-1000)
-				elif character.name == farmer:
+				elif character.name == "farmer":
 					Global.warrior_previous_death = Vector2(-1000,-1000)
 				
 			get_tree().change_scene_to_file("res://Scenes/transition_scene.tscn")
@@ -130,7 +153,7 @@ func _physics_process(delta: float) -> void:
 		direction += Vector2.LEFT
 	if Input.is_action_pressed("right"):
 		direction += Vector2.RIGHT
-	velocity = direction.normalized() * speed
+	velocity = direction.normalized() * (speed + powerup_speed)
 	
 	move_and_slide()
 	
@@ -165,13 +188,25 @@ func swap_character(idx: int) -> void:
 		
 func take_damage():
 	$CharDeathSFX.play()
-	if queue_positions.size() == 1:
-		get_tree().change_scene_to_file("res://Scenes/GameOverScreen.tscn")
-	else:
-		state_controller.transition_to_state(BaseState.State.DEAD)
-		queue_positions.remove_at(0)
+	state_controller.transition_to_state(BaseState.State.DEAD)
+	if queue_positions[0].name == "Necromancer":
+		Global.necromancer_previous_death = global_position
+	elif queue_positions[0].name == "Warrior":
+		Global.warrior_previous_death = global_position
+	elif queue_positions[0].name == "Priest":
+		Global.priest_previous_death = global_position
+	elif queue_positions[0].name == "Farmer":
+		Global.farmer_previous_death = global_position
+	queue_positions.remove_at(0)
+	if queue_positions.size() > 0:
 		state_controller.swap_character(queue_positions[0])
 		queue_positions[0].modulate.a = 1.0
+	else:
+		call_deferred("change_scene_safely")
+
+func change_scene_safely():
+	get_tree().change_scene_to_file("res://Scenes/GameOverScreen.tscn")
+
 		
 func show_dialogue(message: String):
 	$DialogueBox.text = message

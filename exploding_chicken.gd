@@ -16,7 +16,7 @@ func _physics_process(delta: float) -> void:
 		for object in get_overlapping_bodies():
 			if (object.is_in_group("Enemy") || object.is_in_group("King") || object.is_in_group("Throne")) and not object in hit_enemies_set:
 				hit_enemies_set.append(object)
-				object.take_damage(2)
+				object.take_damage(2 + get_tree().current_scene.get_node("Player").powerup_damage)
 	if !animation.is_playing():
 		queue_free()
 	

@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://cisqq5nurggc5"]
 
-[ext_resource type="Script" uid="uid://2p6ilqipp7c7" path="res://Scenes/powerup_special.gd" id="1_nyxkr"]
+[ext_resource type="Script" path="res://Scenes/powerup_special.gd" id="1_nyxkr"]
 [ext_resource type="Texture2D" uid="uid://dung5kqhivx8b" path="res://sprites/Powerups/clock_powerup.png" id="1_pmkrg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nyxkr"]
