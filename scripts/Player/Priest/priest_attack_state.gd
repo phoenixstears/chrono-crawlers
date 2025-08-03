@@ -90,6 +90,8 @@ func place_chicken():
 	chicken.global_position = bullet_spawn.global_position
 
 func slash():
+	swing_animation.visible = true
+	swing_animation.play("default")
 	for object in swing_area.get_overlapping_bodies():
 		if (object.is_in_group("Enemy") || object.is_in_group("Throne") || object.is_in_group("King")) and not object in hit_enemies_set:
 			hit_enemies_set.append(object)

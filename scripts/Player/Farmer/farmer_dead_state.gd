@@ -13,3 +13,5 @@ func check_and_transition_to_attack() -> bool:
 	return false
 func check_and_transition_to_dead() -> bool:
 	return false
+func check_and_transition_to_ability() -> bool:
+	return false

@@ -18,6 +18,8 @@ func process(delta: float) -> void:
 	current_state.process_state(delta)
 
 func swap_character(character):
+	player_root.get_node("Pivot/NecromancerDrainArea/Node2D").visible = false
+	player_root.get_node("Pivot/WarriorSwingAnimation").visible = false
 	current_character_animation_object = character
 	if character.name == "Priest":
 		states[0] = PriestIdleState.new()

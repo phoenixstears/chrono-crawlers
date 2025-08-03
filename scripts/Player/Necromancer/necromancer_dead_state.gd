@@ -4,6 +4,7 @@ extends BaseState
 func enter_state() -> void:
 	state_type = BaseState.State.DEAD
 	character_animation.play("dead")
+	player_root.get_node("Pivot/NecromancerDrainArea/Node2D")
 
 func check_and_transition_to_idle() -> bool:
 	return false
@@ -12,4 +13,6 @@ func check_and_transition_to_walking() -> bool:
 func check_and_transition_to_attack() -> bool:
 	return false
 func check_and_transition_to_dead() -> bool:
+	return false
+func check_and_transition_to_ability() -> bool:
 	return false

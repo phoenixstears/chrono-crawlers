@@ -54,7 +54,6 @@ func process_state(delta: float) -> void:
 		for object in swing_area.get_overlapping_areas():
 			if object.is_in_group("Bullet") and not object in hit_enemies_set:
 				hit_enemies_set.append(object)
-				object.can_hit_player = false
 				object.queue_free()
 			
 	if character_animation.frame == 5:

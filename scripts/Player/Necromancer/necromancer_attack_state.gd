@@ -12,7 +12,7 @@ func enter_state() -> void:
 	character_animation.play("attack")
 	necromancer_drain_area = player_root.get_node("Pivot/NecromancerDrainArea")
 	area_indicator = necromancer_drain_area.get_node("Node2D")
-	area_indicator.visible = true
+
 
 func check_and_transition_to_idle() -> bool:
 	if !Input.is_action_pressed("mouse_left") && player_root.velocity == Vector2.ZERO:
@@ -30,13 +30,21 @@ func check_and_transition_to_attack() -> bool:
 	return false
 func check_and_transition_to_dead() -> bool:
 	return false
+func check_and_transition_to_ability() -> bool:
+	if Input.is_action_just_pressed("mouse_right"):
+		area_indicator.visible = false
+		state_controller.transition_to_state(BaseState.State.ABILITY)
+		return true
+	return false
 
 func process_state(delta: float) -> void:
 	if Input.is_action_just_pressed("left") && !character_animation.flip_h:
 		character_animation.flip_h = true
 	if Input.is_action_just_pressed("right") && character_animation.flip_h:
 		character_animation.flip_h = false
-		
+	
+	if !area_indicator.visible:
+		area_indicator.visible = true
 	for object in necromancer_drain_area.get_overlapping_bodies():
 		if (object.is_in_group("Enemy") || object.is_in_group("King") || object.is_in_group("Throne")):
 			if object in drain_dict:

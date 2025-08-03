@@ -22,6 +22,7 @@ func _physics_process(delta: float) -> void:
 	if spawning:
 		if animation.frame == 6:
 			spawning = false
+			animation.play("chase")
 		return
 	if animation.animation == "attack":
 		if animation.frame == 4:
