@@ -108,7 +108,8 @@ func _process(delta: float) -> void:
 					Global.warrior_previous_death = Vector2(-1000,-1000)
 				
 			get_tree().change_scene_to_file("res://Scenes/transition_scene.tscn")
-	check_for_pillar()
+	if get_tree() != null:
+		check_for_pillar()
 	if get_tree() != null:
 		check_for_relics()
 

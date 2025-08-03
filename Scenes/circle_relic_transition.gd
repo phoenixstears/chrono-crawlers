@@ -13,6 +13,9 @@ func _ready():
 func _physics_process(delta):
 	if Global.circle_relic_acquired:
 		position = position.move_toward(target_position, speed * delta)
+	else:
+		await get_tree().create_timer(7).timeout
+		get_tree().change_scene_to_file("res://Scenes/level_transition_screen.tscn")
 	if position == target_position && !(Global.square_relic_acquired && Global.circle_relic_acquired && Global.triangle_relic_acquired):
 		texture = broken_circle
 		$"../FadeinBlack".modulate = $"../FadeinBlack".modulate.lerp(Color(1, 1, 1, 1), delta)

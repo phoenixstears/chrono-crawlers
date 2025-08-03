@@ -23,7 +23,7 @@ func _ready():
 
 func load_settings():
 	var config = ConfigFile.new()
-	var err = config.load("res://data/settings.cfg")
+	var err = config.load("data/settings.cfg")
 	if err != OK:
 		return
 	sound_volume = config.get_value("volume","music")
@@ -31,7 +31,7 @@ func load_settings():
 func save_settings():
 	var config = ConfigFile.new()
 	config.set_value("volume","music",sound_volume)
-	config.save("res://data/settings.cfg")
+	config.save("data/settings.cfg")
 	
 func load_saves():
 	var config = ConfigFile.new()
