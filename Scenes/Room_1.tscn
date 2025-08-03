@@ -6521,6 +6521,7 @@ sources/1 = SubResource("TileSetAtlasSource_luvdm")
 script = ExtResource("1_dowsv")
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+visible = false
 position = Vector2(-18, -21)
 navigation_polygon = SubResource("NavigationPolygon_pfhkt")
 
