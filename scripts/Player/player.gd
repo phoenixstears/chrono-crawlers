@@ -74,6 +74,16 @@ func _process(delta: float) -> void:
 				show_dialogue("523423...hm...")
 		var king = check_if_dead_king_close()
 		if king != null:
+			for character in queue_positions:
+				if character.name == necromancer:
+					Global.necromancer_previous_death = Vector2(-1000, -1000)
+				elif character.name == warrior:
+					Global.warrior_previous_death = Vector2(-1000,-1000)
+				elif character.name == priest:
+					Global.warrior_previous_death = Vector2(-1000,-1000)
+				elif character.name == farmer:
+					Global.warrior_previous_death = Vector2(-1000,-1000)
+				
 			get_tree().change_scene_to_file("res://Scenes/transition_scene.tscn")
 	check_for_pillar()
 

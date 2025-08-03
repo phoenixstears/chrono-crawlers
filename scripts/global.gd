@@ -4,6 +4,12 @@ var square_relic_acquired: bool = true
 var triangle_relic_acquired: bool = true
 var circle_relic_acquired: bool = true
 
+# Character corpses implementation
+var necromancer_previous_death: Vector2 = Vector2(-1000, -1000)
+var farmer_previous_death: Vector2 = Vector2(-1000, -1000)
+var priest_previous_death: Vector2 = Vector2(-1000, -1000)
+var warrior_previous_death: Vector2 = Vector2(-1000, -1000)
+
 var level = 0
 var sound_volume = 50
 func _ready():

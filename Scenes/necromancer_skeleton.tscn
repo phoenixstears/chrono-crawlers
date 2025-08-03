@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://dqocpdo512cqv"]
+
+[ext_resource type="Texture2D" uid="uid://dydanfdqilme5" path="res://sprites/Player Characters/Necromancer/necromance_skeleton.png" id="1_n2uyv"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_sys1k"]
+radius = 9.2
+
+[node name="NecromancerSkeleton" type="StaticBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_sys1k")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -4)
+texture = ExtResource("1_n2uyv")

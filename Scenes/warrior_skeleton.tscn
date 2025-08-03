@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://bepfki6wyt574"]
+
+[ext_resource type="Texture2D" uid="uid://bksgw34l38214" path="res://sprites/Player Characters/Warrior/warrior_skeleton.png" id="1_lwk07"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_sys1k"]
+radius = 9.2
+
+[node name="WarriorSkeleton" type="StaticBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_sys1k")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -4)
+texture = ExtResource("1_lwk07")

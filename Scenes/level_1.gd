@@ -92,6 +92,13 @@ var room2_cleared = false
 var current_wave_3 = 0
 var room3_cleared = false
 var boss_spawned = false
+
+
+var necromancer_corpse_scene = preload("res://Scenes/necromancer_skeleton.tscn")
+var warrior_corpse_scene = preload("res://Scenes/warrior_skeleton.tscn")
+var priest_corpse_scene = preload("res://Scenes/priest_skeleton.tscn")
+var farmer_corpse_scene = preload("res://Scenes/farmer_skeleton.tscn")
+
 func spawn_wave_1():
 	for enemy_data in waves_1[current_wave_1]:
 		var enemy = enemy_data["scene"].instantiate()
@@ -116,7 +123,26 @@ func spawn_boss():
 		var enemy = enemy_data["scene"].instantiate()
 		enemy.position = enemy_data["position"]
 		add_child(enemy)
+func spawn_previous_character_corpses():
+	var necromancer_corpse = necromancer_corpse_scene.instantiate()
+	add_child(necromancer_corpse)
+	necromancer_corpse.global_position = Global.necromancer_previous_death
+	
+	var warrior_corpse = warrior_corpse_scene.instantiate()
+	add_child(warrior_corpse)
+	warrior_corpse.global_position = Global.warrior_previous_death
+	
+	var priest_corpse = priest_corpse_scene.instantiate()
+	add_child(priest_corpse)
+	priest_corpse.global_position = Global.priest_previous_death
+	
+	var farmer_corpse = farmer_corpse_scene.instantiate()
+	add_child(farmer_corpse)
+	farmer_corpse.global_position = Global.farmer_previous_death
+
 func _ready():
+	spawn_previous_character_corpses()
+	
 	spawn_wave_1()
 	$FightSound.play()
 	if Global.level == 1:
