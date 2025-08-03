@@ -14,7 +14,7 @@ var warrior_previous_death: Vector2 = Vector2(-1000, -1000)
 var egg_positions = []
 
 var level = 0
-var sound_volume = 50
+var sound_volume = 3
 func _ready():
 	load_saves()
 	load_settings()
@@ -23,7 +23,7 @@ func _ready():
 
 func load_settings():
 	var config = ConfigFile.new()
-	var err = config.load("data/settings.cfg")
+	var err = config.load("settings.cfg")
 	if err != OK:
 		return
 	sound_volume = config.get_value("volume","music")
@@ -31,11 +31,11 @@ func load_settings():
 func save_settings():
 	var config = ConfigFile.new()
 	config.set_value("volume","music",sound_volume)
-	config.save("data/settings.cfg")
+	config.save("settings.cfg")
 	
 func load_saves():
 	var config = ConfigFile.new()
-	var err = config.load("res://data/saves.cfg")
+	var err = config.load("saves.cfg")
 	if err != OK:
 		return
 	
@@ -43,7 +43,7 @@ func load_saves():
 func save_progress(value: int):
 	var config = ConfigFile.new()
 	config.set_value("game_saves","save_available",value)
-	config.save("res://data/saves.cfg")
+	config.save("saves.cfg")
 	
 func _exit_tree():
 	save_settings()
