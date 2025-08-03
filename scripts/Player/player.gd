@@ -84,14 +84,17 @@ func check_for_relics():
 		if global_position.distance_to(body.global_position) < 12:
 			body.queue_free()
 			Global.square_relic_acquired = true
+			MusicPlayer.playRelic()
 	for body in get_tree().get_nodes_in_group("GreenRelic"):
 		if global_position.distance_to(body.global_position) < 12:
 			body.queue_free()
 			Global.triangle_relic_acquired = true
+			MusicPlayer.playRelic()
 	for body in get_tree().get_nodes_in_group("BlueRelic"):
 		if global_position.distance_to(body.global_position) < 12:
 			body.queue_free()
 			Global.circle_relic_acquired = true
+			MusicPlayer.playRelic()
 func check_if_chest_close():
 	for body in get_tree().get_nodes_in_group("Chest"):
 		if global_position.distance_to(body.global_position) < 20:

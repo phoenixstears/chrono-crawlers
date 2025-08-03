@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://cb53pjaf5cfah" path="res://sprites/Enemies/Skeleton/skeleton_spawning.png" id="5_rtppx"]
 [ext_resource type="Script" uid="uid://ehgs48w5c5j4" path="res://Scenes/skeleton_pivot.gd" id="5_yek4v"]
 [ext_resource type="Texture2D" uid="uid://bnv6q500kwk2l" path="res://sprites/Enemies/Skeleton/skeleton_slash_particles.png" id="6_2bjux"]
-[ext_resource type="AudioStream" uid="uid://bjti8texn4dpj" path="res://SFX/skeleton_death.wav" id="7_2bjux"]
+[ext_resource type="AudioStream" uid="uid://c7d4eipi4b3kt" path="res://SFX/BoneSplosion.wav" id="8_rtppx"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rxd7e"]
 atlas = ExtResource("2_iuen5")
@@ -291,4 +291,4 @@ sprite_frames = SubResource("SpriteFrames_ijbhh")
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 
 [node name="DeathSound" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("7_2bjux")
+stream = ExtResource("8_rtppx")
