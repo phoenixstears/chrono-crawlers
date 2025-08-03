@@ -147,6 +147,8 @@ func _physics_process(delta: float) -> void:
 			else: 
 				queue_positions[i].position = positions_buffer[i*frame_distance]
 func swap_character(idx: int) -> void:
+	if idx >= queue_positions.size():
+		idx = queue_positions.size() - 1
 	var temp = queue_positions[0]
 	queue_positions[0] = queue_positions[idx]
 	queue_positions[idx] = temp

@@ -16,12 +16,9 @@ func _physics_process(delta):
 	if position == target_position && !(Global.square_relic_acquired && Global.circle_relic_acquired && Global.triangle_relic_acquired):
 		texture = broken_circle
 		$"../FadeinBlack".modulate = $"../FadeinBlack".modulate.lerp(Color(1, 1, 1, 1), delta)
-	elif position == target_position && (Global.square_relic_acquired && Global.circle_relic_acquired && Global.triangle_relic_acquired):
-		print("whitening")
+	elif position == target_position && (Global.square_relic_acquired && Global.circle_relic_acquired && Global.triangle_relic_acquired): 
 		$"../FadeinWhite".modulate = $"../FadeinWhite".modulate.lerp(Color(1, 1, 1, 1), delta)
 	if $"../FadeinWhite".modulate.a > 0.99:
-		print("loading ending scene")
 		get_tree().change_scene_to_file("res://Scenes/ending.tscn")
 	if $"../FadeinBlack".modulate.a > 0.99:
-		print("loading level scene")
 		get_tree().change_scene_to_file("res://Scenes/level_transition_screen.tscn")
